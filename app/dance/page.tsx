@@ -4,8 +4,18 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import GalleryGlobe from "@/components/GalleryGlobe";
+import ActivityNav from "@/components/ActivityNav";
 
 export default function DancePage() {
+  const galleryImages = [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ];
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -77,22 +87,13 @@ export default function DancePage() {
 
           {/* Previous Edition */}
           <div className="mb-16 bg-card rounded-2xl p-8 border border-border/50">
-            <h4 className="text-2xl font-bold font-montserrat mb-4">Édition 2025</h4>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <h4 className="text-2xl font-bold font-montserrat mb-6">Édition 2025</h4>
+            <p className="text-muted-foreground leading-relaxed mb-8">
               L'édition 2025 a été marquée par des performances spectaculaires mettant en avant les talents danser de nos étudiants. Avec plus de 15 groupes de danse et plus de 200 danseurs, cette édition a établi des records en termes de participation et d'engagement.
             </p>
             
-            {/* Gallery placeholder */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div
-                  key={i}
-                  className="aspect-square bg-gradient-hero rounded-lg flex items-center justify-center text-muted-foreground hover:shadow-lg transition-all duration-300"
-                >
-                  <span className="text-sm">Photo {i}</span>
-                </div>
-              ))}
-            </div>
+            {/* Gallery Globe */}
+            <GalleryGlobe images={galleryImages} autoRotate={true} rotationSpeed={2} />
           </div>
 
           {/* Highlights */}
@@ -142,16 +143,8 @@ export default function DancePage() {
             </div>
           </div>
 
-          {/* CTA */}
-          <div className="text-center bg-gradient-hero rounded-2xl p-8 text-black">
-            <h5 className="text-2xl font-bold font-montserrat mb-4">Prêt à rejoindre la danse?</h5>
-            <p className="mb-6">Inscrivez-vous ou partagez votre talent lors de la Journée Culturelle ESGAE 2026</p>
-            <Link href="/#localisation">
-              <Button size="lg" className="rounded-2xl gap-2">
-                En savoir plus
-              </Button>
-            </Link>
-          </div>
+          {/* Other Activities Navigation */}
+          <ActivityNav currentActivity="dance" />
         </div>
       </section>
     </div>
