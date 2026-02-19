@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 export default function Hero() {
   const titleTypedRef = React.useRef<HTMLSpanElement | null>(null);
   const titleCursorRef = React.useRef<HTMLSpanElement | null>(null);
+  const esgaeRef = React.useRef<HTMLSpanElement | null>(null);
   const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
   const scrollYRef = React.useRef(0);
   const mouseRef = React.useRef({ x: 0, y: 0, tx: 0, ty: 0 });
@@ -49,6 +50,41 @@ export default function Hero() {
   }, []);
 
   React.useEffect(() => {
+    const el = esgaeRef.current;
+    if (!el) return;
+
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.4 });
+
+    // Shimmer/Glow effect with sweeping light
+    tl.to(el, {
+      backgroundPosition: "200% center",
+      duration: 2,
+      ease: "power1.inOut",
+    }, 0)
+      .to(el, {
+        textShadow: "0 0 30px rgba(16, 185, 129, 0.6), inset 0 0 20px rgba(16, 185, 129, 0.2)",
+        duration: 1,
+        ease: "sine.inOut",
+      }, 0)
+      .to(el, {
+        textShadow: "0 0 5px rgba(16, 185, 129, 0.2), inset 0 0 5px rgba(16, 185, 129, 0.05)",
+        duration: 1,
+        ease: "sine.inOut",
+      }, 1);
+
+    // Add shimmer gradient background
+    el.style.backgroundImage = "linear-gradient(90deg, transparent 0%, rgba(16, 185, 129, 0.5) 50%, transparent 100%)";
+    el.style.backgroundSize = "200% center";
+    el.style.backgroundPosition = "-200% center";
+    el.style.backgroundClip = "text";
+    el.style.webkitBackgroundClip = "text";
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
+  React.useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -59,13 +95,21 @@ export default function Hero() {
     let width = 0;
     let height = 0;
 
-    const particles = Array.from({ length: 70 }).map(() => ({
+    const particles = Array.from({ length: 120 }).map(() => ({
       x: Math.random(),
       y: Math.random(),
-      r: 0.5 + Math.random() * 1.8,
-      vx: (-0.5 + Math.random()) * 0.15,
-      vy: (-0.5 + Math.random()) * 0.15,
-      tint: Math.random() > 0.55 ? "blue" : "orange",
+      r: 1.2 + Math.random() * 3.5,
+      vx: (-0.5 + Math.random()) * 0.05,
+      vy: (-0.5 + Math.random()) * 0.05,
+      rot: Math.random() * Math.PI * 2,
+      vr: (-0.5 + Math.random()) * 0.03,
+      shape: ((): "circle" | "square" | "triangle" => {
+        const t = Math.random();
+        if (t < 0.6) return "circle";
+        if (t < 0.85) return "square";
+        return "triangle";
+      })(),
+      tint: Math.random() > 0.55 ? "green" : "orange",
     }));
 
     const resize = () => {
@@ -93,16 +137,19 @@ export default function Hero() {
       const scroll = scrollYRef.current;
       const progress = Math.max(0, Math.min(1, scroll / 900));
 
-      mouseRef.current.x += (mouseRef.current.tx - mouseRef.current.x) * 0.06;
-      mouseRef.current.y += (mouseRef.current.ty - mouseRef.current.y) * 0.06;
+      mouseRef.current.x += (mouseRef.current.tx - mouseRef.current.x) * 0.15;
+      mouseRef.current.y += (mouseRef.current.ty - mouseRef.current.y) * 0.15;
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;
 
+      ctx.fillStyle = "rgba(0, 0, 0, 0)";
       ctx.clearRect(0, 0, width, height);
 
       for (const p of particles) {
-        p.x += p.vx * (1 + progress * 1.2);
-        p.y += p.vy * (1 + progress * 1.2);
+        const speed = 0.018;
+        p.x += p.vx * speed * (1 + progress * 0.012);
+        p.y += (p.vy * speed + progress * 0.000005) * (1 + progress * 0.009);
+        p.rot += p.vr * (1 + progress * 0.015);
 
         if (p.x < -0.05) p.x = 1.05;
         if (p.x > 1.05) p.x = -0.05;
@@ -111,18 +158,39 @@ export default function Hero() {
 
         const px =
           p.x * width +
-          Math.sin(progress * Math.PI) * 24 +
-          mx * (18 + progress * 6);
-        const py = p.y * height - progress * 60 + my * (14 + progress * 4);
-        const alpha = 0.18 + (1 - progress) * 0.15;
+          Math.sin(progress * Math.PI) * 14 +
+          mx * (35 + progress * 15);
+        const py = p.y * height - progress * 42 + my * (28 + progress * 10);
+        const alpha = Math.max(0.15, 0.25 + (1 - progress) * 0.1);
 
-        ctx.beginPath();
-        ctx.arc(px, py, p.r * (1 + progress * 0.65), 0, Math.PI * 2);
-        ctx.fillStyle =
-          p.tint === "blue"
-            ? `rgba(37, 99, 235, ${alpha})`
-            : `rgba(217, 142, 4, ${alpha})`;
-        ctx.fill();
+        const fill =
+          p.tint === "green"
+            ? `rgba(16, 185, 129, ${Math.min(1, alpha * 0.8)})`
+            : `rgba(217, 142, 4, ${Math.min(1, alpha * 0.8)})`;
+
+        const size = (p.r * 0.9) * (1 + progress * 0.25);
+
+        ctx.save();
+        ctx.translate(px, py);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = fill;
+
+        if (p.shape === "circle") {
+          ctx.beginPath();
+          ctx.arc(0, 0, size, 0, Math.PI * 2);
+          ctx.fill();
+        } else if (p.shape === "square") {
+          ctx.fillRect(-size, -size, size * 2, size * 2);
+        } else {
+          ctx.beginPath();
+          ctx.moveTo(0, -size * 1.35);
+          ctx.lineTo(size * 1.15, size * 1.0);
+          ctx.lineTo(-size * 1.15, size * 1.0);
+          ctx.closePath();
+          ctx.fill();
+        }
+
+        ctx.restore();
       }
 
       raf = window.requestAnimationFrame(render);
@@ -133,6 +201,8 @@ export default function Hero() {
     window.addEventListener("resize", resize);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("pointermove", onPointerMove, { passive: true });
+    
+    // Start render loop
     raf = window.requestAnimationFrame(render);
 
     return () => {
@@ -151,10 +221,10 @@ export default function Hero() {
       <canvas
         ref={canvasRef}
         className="absolute inset-0 size-full pointer-events-none"
-        style={{ zIndex: 0 }}
+        style={{ zIndex: 1, display: "block" }}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-background to-accent/15" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-background to-accent/15" style={{ zIndex: 0 }} />
       <div
         aria-hidden="true"
         className="absolute -top-24 -left-24 size-[22rem] rounded-full blur-3xl opacity-40 float"
@@ -168,7 +238,7 @@ export default function Hero() {
         className="absolute -bottom-32 -right-32 size-[26rem] rounded-full blur-3xl opacity-35 float"
         style={{
           background:
-            "radial-gradient(circle at 40% 40%, rgb(37 99 235 / 0.55), transparent 60%)",
+            "radial-gradient(circle at 40% 40%, rgb(16 185 129 / 0.55), transparent 60%)",
           animationDelay: "2s",
         }}
       />
@@ -200,7 +270,7 @@ export default function Hero() {
                 className="typed-cursor"
               />
             </span>
-            <span className="bg-clip-text text-black block text-6xl sm:text-7xl md:text-8xl">
+            <span ref={esgaeRef} className="bg-clip-text text-black block text-6xl sm:text-7xl md:text-8xl relative inline-block">
               ESGAE
             </span>
             <span className="text-2xl sm:text-3xl md:text-4xl text-muted-foreground font-medium block">
@@ -214,34 +284,11 @@ export default function Hero() {
           style={{ animationDelay: "0.3s" }}
         >
           Thème :{" "}
-          <span className="font-semibold text-foreground bg-gradient-hero bg-clip-text text-transparent">
+          <span className="font-semibold text-foreground bg-gradient-hero bg-clip-text ">
             Éducation et Culture, moteurs du Progrès Social
           </span>
         </p>
 
-        <div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 my-8 max-w-3xl mx-auto"
-          style={{ animationDelay: "0.4s" }}
-        >
-          {[
-            { value: "04", label: "Avril", tone: "text-primary" },
-            { value: "09h00", label: "Heure", tone: "text-primary" },
-            { value: "1000", label: "Frs", tone: "text-primary" },
-            {
-              value: <MapPin className="size-5" aria-hidden="true" />,
-              label: "Moukondo",
-              tone: "text-accent",
-            },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className="bg-card/70 backdrop-blur-md rounded-2xl p-4 border border-border shadow-sm"
-            >
-              <div className={`text-2xl font-bold ${item.tone}`}>{item.value}</div>
-              <div className="text-sm text-muted-foreground">{item.label}</div>
-            </div>
-          ))}
-        </div>
 
         <div
           className="flex flex-col sm:flex-row gap-4 justify-center mt-10 slide-in-up"

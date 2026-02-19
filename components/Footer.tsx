@@ -29,7 +29,7 @@ export default function Footer() {
             className="space-y-3 slide-in-up"
             style={{ animationDelay: "0.05s" }}
           >
-            <h3 className="text-2xl font-bold font-montserrat gradient-hero bg-clip-text text-transparent">ESGAE</h3>
+            <h3 className="text-2xl font-bold font-montserrat gradient-hero bg-clip-text text-white px-2 rounded">ESGAE la grande école</h3>
             <p className="text-white/70">
               Célébrant l&apos;éducation et la culture comme moteurs du progrès
               social.
@@ -114,7 +114,7 @@ export default function Footer() {
           onClick={scrollToTop}
           className="fixed bottom-8 right-8 w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-primary/40 transition-all hover:scale-110 z-50 animate-bounce"
         >
-          <ArrowUp size={24} className="text-white" />
+          <ArrowUp size={24} className="text-primary-foreground" />
         </button>
       )}
     </footer>

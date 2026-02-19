@@ -72,14 +72,14 @@ export default function Programme() {
 
         {/* Info Box */}
         <div
-          className="mt-16 bg-gradient-hero rounded-2xl p-8 text-white text-center shadow-lg hover:shadow-xl transition-all duration-300 scale-in"
+          className="mt-16 bg-gradient-hero rounded-lg p-8 text-black text-center shadow-lg hover:shadow-xl transition-all duration-300 scale-in"
           style={{ animationDelay: "0.5s" }}
         >
           <p className="text-lg font-medium">
             Chaque activité est conçue pour divertir, inspirer et célébrer notre
             diversité culturelle.
           </p>
-          <p className="mt-4 text-white/80">
+          <p className="mt-4">
             Plus de détails sur le programme complet seront annoncés bientôt.
           </p>
         </div>

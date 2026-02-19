@@ -70,7 +70,7 @@ export default function About() {
               style={{ animationDelay: `${0.2 + index * 0.05}s` }}
             >
               <div className="w-12 h-12 bg-gradient-hero rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                <feature.icon className="text-white" size={24} />
+                <feature.icon className="text-primary" size={24} />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-2 font-montserrat">
                 {feature.title}

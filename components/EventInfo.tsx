@@ -9,7 +9,7 @@ const EVENT_INFO = [
   {
     icon: MapPin,
     label: "Lieu",
-    value: "ESGAE, Avenue Cité des 17",
+    value: "ESGAE",
     subvalue: "Moukondo",
   },
   {
@@ -28,7 +28,7 @@ const EVENT_INFO = [
     icon: Ticket,
     label: "Billets",
     value: "Sur place",
-    subvalue: "À l&apos;entrée",
+    subvalue: "Au burreau de l'AEA",
   },
 ];
 
@@ -56,11 +56,11 @@ export default function EventInfo() {
                 className="group scale-in"
                 style={{ animationDelay: `${0.1 + index * 0.05}s` }}
               >
-                <Card className="rounded-2xl border-border/70 shadow-sm transition-all duration-300 group-hover:shadow-lg hover:border-primary/30 hover:scale-105 h-full">
+                <Card className="rounded-2xl border-border/70 shadow-sm transition-all duration-300 group-hover:shadow-lg hover:border-primary/30 hover:scale-101 h-full">
                   <CardContent className="p-8">
                     {/* Icon */}
                     <div className="w-14 h-14 bg-gradient-hero rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <Icon className="text-white" size={28} />
+                      <Icon className="text-primary" size={28} />
                     </div>
 
                     {/* Label */}

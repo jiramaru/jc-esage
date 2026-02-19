@@ -25,8 +25,8 @@ export default function ActivityCard({
       <Card className="h-full rounded-2xl border-border/70 shadow-sm transition-all duration-300 group-hover:shadow-xl hover:border-primary/50 hover:scale-105">
         <CardContent className="p-8">
           {/* Icon */}
-          <div className="w-16 h-16 bg-gradient-hero rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-            <Icon className="text-white" size={32} />
+          <div className="w-16 h-16 bg-gradient-hero rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <Icon className="text-primary" size={32} />
           </div>
 
           {/* Title */}

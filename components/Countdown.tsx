@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Clock, CheckCircle, Share2, PartyPopper, CalendarDays } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 function CountdownBox({
   value,
@@ -16,14 +17,14 @@ function CountdownBox({
 }) {
   return (
     <div
-      className="scale-in"
+      className="scale-in shrink-0"
       style={{ animationDelay: `${delay}s` }}
     >
-      <div className="bg-gradient-hero rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-shadow hover:scale-105 duration-300">
-        <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white font-montserrat">
+      <div className="bg-gradient-hero rounded-xl px-4 py-4 w-24 sm:w-28 text-center">
+        <div className="text-3xl sm:text-4xl font-bold font-montserrat text-primary leading-none">
           {String(value).padStart(2, "0")}
         </div>
-        <div className="text-sm sm:text-base text-white/80 mt-2">{label}</div>
+        <div className="text-xs sm:text-sm text-muted-foreground/80 mt-2 leading-none">{label}</div>
       </div>
     </div>
   );
@@ -124,28 +125,20 @@ export default function Countdown() {
                 Compte à rebours
               </h2>
               <p className="text-muted-foreground">
-                Jusqu&apos;à la Journée Culturelle ESGAE
+                Jusqu&apos;à la Journée Culturelle de l&apos;ESGAE
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <CountdownBox value={countdown.days} label="Jours" delay={0.2} />
-              <CountdownBox
-                value={countdown.hours}
-                label="Heures"
-                delay={0.25}
-              />
-              <CountdownBox
-                value={countdown.minutes}
-                label="Minutes"
-                delay={0.3}
-              />
-              <CountdownBox
-                value={countdown.seconds}
-                label="Secondes"
-                delay={0.35}
-              />
-            </div>
+            <Card className="rounded-lg border bg-card/80 backdrop-blur-sm shadow-sm">
+              <CardContent className="p-4 sm:p-6">
+                <div className="flex items-stretch gap-3 sm:gap-4 justify-start sm:justify-center overflow-x-auto">
+                  <CountdownBox value={countdown.days} label="Jours" delay={0.2} />
+                  <CountdownBox value={countdown.hours} label="Heures" delay={0.25} />
+                  <CountdownBox value={countdown.minutes} label="Minutes" delay={0.3} />
+                  <CountdownBox value={countdown.seconds} label="Secondes" delay={0.35} />
+                </div>
+              </CardContent>
+            </Card>
           </div>
         )}
       </div>
