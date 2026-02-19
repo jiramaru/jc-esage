@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎉 Journée Culturelle ESGAE 2026
 
-## Getting Started
+Un site vitrine moderne pour l'événement annuel "Journée Culturelle" organisé par ESGAE.
 
-First, run the development server:
+## 🎯 Objectif
+
+Créer une plateforme web élégante pour présenter et promouvoir la Journée Culturelle ESGAE 2026, avec un design inspiré des visuels officiels et une expérience utilisateur exceptionnelle.
+
+## ✨ Caractéristiques
+
+- ✅ **Compte à rebours dynamique** jusqu'au 04 Avril 2026 à 09h00
+- ✅ **Design responsive** mobile-first
+- ✅ **Animations élégantes** avec Framer Motion
+- ✅ **Sections complètes** : Hero, Programme, Galerie, Infos pratiques, Localisation
+- ✅ **Palette de couleurs** inspirée du design africain
+- ✅ **Optimisation des performances** avec next/image
+- ✅ **Navigation fluide** avec scroll smooth
+
+## 🚀 Stack Technique
+
+- **Next.js 16** (App Router)
+- **React 19** 
+- **TypeScript**
+- **TailwindCSS 4**
+- **Framer Motion** (animations)
+- **Lucide React** (icônes)
+- **Google Fonts** (Montserrat, Inter)
+
+## 🛠️ Installation & Démarrage Rapide
+
+### Prérequis
+- Node.js 18+
+- pnpm (recommandé) ou npm
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Installer les dépendances
+pnpm install
+# ou
+npm install
+
+# Lancer le serveur de développement
 pnpm dev
-# or
-bun dev
+# ou
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) pour voir le site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm build
+pnpm start
+```
 
-## Learn More
+## 📁 Structure des Composants
 
-To learn more about Next.js, take a look at the following resources:
+```
+components/
+├── Navbar.tsx          # Navigation sticky
+├── Hero.tsx            # Section d'accueil
+├── Countdown.tsx       # Compte à rebours
+├── About.tsx           # À propos
+├── Programme.tsx       # Programme d'activités
+├── ActivityCard.tsx    # Carte réutilisable
+├── Gallery.tsx         # Galerie photos
+├── EventInfo.tsx       # Infos pratiques
+├── MapSection.tsx      # Localisation
+├── SectionTitle.tsx    # Titre réutilisable
+└── Footer.tsx          # Pied de page
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Design System
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Élément | Couleur | Code |
+|---------|---------|------|
+| Primaire | Orange Gold | `#D98E04` |
+| Texte | Deep Black | `#0B0B0B` |
+| Fond | Warm White | `#F7F7F2` |
+| Accent | Brown Earth | `#7A3E12` |
+| Succès | Green Accent | `#1E9E57` |
+| Alerte | Red Accent | `#B91C1C` |
 
-## Deploy on Vercel
+## 📋 Sections
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Hero** - Titre principal + Infos clés + CTA
+2. **Countdown** - Compte à rebours en temps réel
+3. **About** - Présentation + Valeurs
+4. **Programme** - 5 activités principales
+5. **Galerie** - Photos d'événements passés
+6. **Infos** - Lieu, heure, prix, billets
+7. **Localisation** - Carte + adresse
+8. **Footer** - Réseaux sociaux + Navigation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📸 Images
+
+Les images utilisent Pexels. Pour ajouter vos images :
+
+1. Téléchargez dans `/public/assets/gallery/`
+2. Mettez à jour les URLs dans `components/Gallery.tsx`
+
+## 🌐 Déploiement Vercel
+
+```bash
+vercel deploy
+```
+
+Ou connectez votre repo GitHub directement à Vercel.
+
+## 📱 Responsive Design
+
+- **Mobile** : 1 colonne
+- **Tablette** : 2 colonnes  
+- **Desktop** : 3-4 colonnes
+
+## 🎬 Animations
+
+- Fade-in au scroll
+- Slide-up 
+- Scale on hover
+- Pulse glow
+- Stagger animations
+
+## 🔍 SEO
+
+Métadonnées optimisées :
+- Titre : "Journée Culturelle ESGAE 2026"
+- Description : "Événement culturel ESGAE - 04 Avril 2026"
+- OpenGraph tags
+
+## 📝 À Faire
+
+- [ ] Ajouter vraies images
+- [ ] Configurer réseaux sociaux
+- [ ] Email de contact
+- [ ] Système de paiement (optionnel)
+
+## 🔗 Ressources
+
+- [Next.js Docs](https://nextjs.org/docs)
+- [TailwindCSS](https://tailwindcss.com)
+- [Framer Motion](https://www.framer.com/motion)
+- [Lucide Icons](https://lucide.dev)
+
+## 📄 Licence
+
+© 2026 Journée Culturelle ESGAE - Tous droits réservés
+
+---
+
+**Fait avec ❤️ pour la culture** 🎭🎵🎨

@@ -1,0 +1,26 @@
+interface SectionTitleProps {
+  title: string;
+  subtitle?: string;
+  centered?: boolean;
+}
+
+export default function SectionTitle({
+  title,
+  subtitle,
+  centered = true,
+}: SectionTitleProps) {
+  return (
+    <div
+      className={`space-y-2 slide-in-up ${centered ? "text-center" : ""}`}
+    >
+      <h2 className="text-4xl sm:text-5xl font-bold text-foreground font-montserrat">
+        {title}
+      </h2>
+      {subtitle && (
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          {subtitle}
+        </p>
+      )}
+    </div>
+  );
+}

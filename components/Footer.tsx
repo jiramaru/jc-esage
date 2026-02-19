@@ -1,0 +1,122 @@
+"use client";
+
+import { Facebook, Instagram, Twitter, Mail, ArrowUp, Heart } from "lucide-react";
+import { useState, useEffect } from "react";
+
+export default function Footer() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    <footer className="bg-foreground text-white pt-16 pb-8 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Main Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          {/* About */}
+          <div
+            className="space-y-3 slide-in-up"
+            style={{ animationDelay: "0.05s" }}
+          >
+            <h3 className="text-2xl font-bold font-montserrat gradient-hero bg-clip-text text-transparent">ESGAE</h3>
+            <p className="text-white/70">
+              Célébrant l&apos;éducation et la culture comme moteurs du progrès
+              social.
+            </p>
+            <p className="text-sm text-white/50">
+              AEA - Association des étudiants et anciens
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div
+            className="slide-in-up"
+            style={{ animationDelay: "0.1s" }}
+          >
+            <h3 className="text-lg font-bold mb-4 font-montserrat">Liens</h3>
+            <ul className="space-y-2">
+              {[
+                { label: "Accueil", href: "#hero" },
+                { label: "Programme", href: "#programme" },
+                { label: "Galerie", href: "#galerie" },
+                { label: "Infos", href: "#infos" },
+                { label: "Localisation", href: "#localisation" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-white/70 hover:text-primary transition-colors duration-300 flex items-center gap-2"
+                  >
+                    <span className="text-primary">→</span>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Social Links */}
+          <div
+            className="slide-in-up"
+            style={{ animationDelay: "0.15s" }}
+          >
+            <h3 className="text-lg font-bold mb-4 font-montserrat">Nous suivre</h3>
+            <div className="flex gap-4 mb-6">
+              {[
+                { icon: Facebook, href: "#", label: "Facebook" },
+                { icon: Instagram, href: "#", label: "Instagram" },
+                { icon: Twitter, href: "#", label: "Twitter" },
+                { icon: Mail, href: "mailto:contact@esgae.com", label: "Email" },
+              ].map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  title={label}
+                  className="w-10 h-10 bg-primary/20 border border-primary/30 rounded-full flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300"
+                >
+                  <Icon size={18} />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-white/10 pt-8 mt-8">
+          {/* Bottom Bar */}
+          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/60">
+            <p>
+              © 2026 Journée Culturelle ESGAE. Tous droits réservés.
+            </p>
+            <p className="mt-4 md:mt-0 flex items-center gap-2">
+              Fait avec
+              <Heart size={16} className="text-primary fill-primary" />
+              pour la culture
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 w-12 h-12 bg-primary rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-primary/40 transition-all hover:scale-110 z-50 animate-bounce"
+        >
+          <ArrowUp size={24} className="text-white" />
+        </button>
+      )}
+    </footer>
+  );
+}
