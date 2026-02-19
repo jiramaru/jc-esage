@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-export default function DancePage() {
+export default function TheatrePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -17,7 +17,7 @@ export default function DancePage() {
               Retour au programme
             </Button>
           </Link>
-          <h1 className="text-2xl font-bold font-montserrat">Danse</h1>
+          <h1 className="text-2xl font-bold font-montserrat">Théâtre</h1>
           <div className="w-20" />
         </div>
       </div>
@@ -33,25 +33,16 @@ export default function DancePage() {
               "radial-gradient(circle at 30% 30%, rgb(217 142 4 / 0.6), transparent 60%)",
           }}
         />
-        <div
-          aria-hidden="true"
-          className="absolute -bottom-32 -right-32 size-[26rem] rounded-full blur-3xl opacity-35 float"
-          style={{
-            background:
-              "radial-gradient(circle at 40% 40%, rgb(16 185 129 / 0.55), transparent 60%)",
-            animationDelay: "2s",
-          }}
-        />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <Badge variant="secondary" className="bg-accent text-accent-foreground font-medium">
             Section Culturelle 2026
           </Badge>
           <h2 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight font-montserrat">
-            <span className="bg-gradient-hero bg-clip-text text-transparent">Danse</span>
+            <span className="bg-gradient-hero bg-clip-text text-transparent">Théâtre</span>
           </h2>
           <p className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            Vivez des performances de danse captivantes célébrant notre héritage culturel
+            Découvrez des sketches et pièces de théâtre pleins d'humour et d'émotions
           </p>
         </div>
       </section>
@@ -62,16 +53,16 @@ export default function DancePage() {
           {/* Description */}
           <div className="mb-16 fade-in">
             <h3 className="text-3xl sm:text-4xl font-bold font-montserrat mb-6">
-              À propos de la danse
+              À propos du théâtre
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              La danse est l'une des sections les plus dynamiques et attendues de la Journée Culturelle ESGAE. C'est une célébration vibrante de la diversité culturelle à travers le mouvement, le rythme et l'expression artistique.
+              Le théâtre à ESGAE est un art vivant qui transcende les frontières. À travers des sketches comiques, des pièces dramatiques et des adaptations créatives, nos comédiens enchantent et émeuvent le public.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              Nos artistes talentueux présentent des performances mêlant danse traditionnelle africaine, danse contemporaine et styles modernes. Chaque performance raconte une histoire, transmet une émotion et célèbre notre patrimoine culturel.
+              Chaque performance est une occasion d'explorer la condition humaine, de faire rire, de faire réfléchir et de partager des émotions authentiques avec l'audience. Le théâtre à ESGAE c'est la magie de l'expression artistique live.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Que ce soit des mouvements gracieux, des rythmes énergiques ou des compositions originales, la danse à ESGAE est une expérience inoubliable qui unit les spectateurs dans une célébration commune.
+              Des histoires tirées de la vie quotidienne aux adaptations de classiques, le théâtre reste l'une des sections les plus appréciées et attendues de notre événement.
             </p>
           </div>
 
@@ -79,7 +70,7 @@ export default function DancePage() {
           <div className="mb-16 bg-card rounded-2xl p-8 border border-border/50">
             <h4 className="text-2xl font-bold font-montserrat mb-4">Édition 2025</h4>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              L'édition 2025 a été marquée par des performances spectaculaires mettant en avant les talents danser de nos étudiants. Avec plus de 15 groupes de danse et plus de 200 danseurs, cette édition a établi des records en termes de participation et d'engagement.
+              L'édition 2025 a présenté plus de 12 pièces théâtrales et sketches comiques qui ont ravi le public. Avec des comédiens talentueux et des histoires captivantes, la section théâtre a reçu une ovation debout de la part des spectateurs.
             </p>
             
             {/* Gallery placeholder */}
@@ -98,23 +89,23 @@ export default function DancePage() {
           {/* Highlights */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             <div className="bg-card rounded-2xl p-6 border border-border/50">
-              <h5 className="text-xl font-bold font-montserrat mb-3 text-primary">Genres représentés</h5>
+              <h5 className="text-xl font-bold font-montserrat mb-3 text-primary">Genres présentés</h5>
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Danse traditionnelle africaine
+                  Sketches humoristiques
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Danse contemporaine
+                  Pièces dramatiques
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Hip-hop & Street Jazz
+                  Comédies musicales
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-accent rounded-full" />
-                  Danse fusion
+                  Improv & one-man shows
                 </li>
               </ul>
             </div>
@@ -124,19 +115,19 @@ export default function DancePage() {
               <ul className="space-y-2 text-muted-foreground">
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-primary rounded-full" />
-                  Ouverture de la danse en direct
+                  Sketches comiques remplis d'énergie
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-primary rounded-full" />
-                  Performances des groupes de danse
+                  Pièces dramatiques émouvantes
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-primary rounded-full" />
-                  Dance battle & compétition
+                  Mise en scène créative
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-primary rounded-full" />
-                  Grand finale avec tous les danseurs
+                  Interaction avec le public
                 </li>
               </ul>
             </div>
@@ -144,8 +135,8 @@ export default function DancePage() {
 
           {/* CTA */}
           <div className="text-center bg-gradient-hero rounded-2xl p-8 text-black">
-            <h5 className="text-2xl font-bold font-montserrat mb-4">Prêt à rejoindre la danse?</h5>
-            <p className="mb-6">Inscrivez-vous ou partagez votre talent lors de la Journée Culturelle ESGAE 2026</p>
+            <h5 className="text-2xl font-bold font-montserrat mb-4">Prêt à monter sur scène?</h5>
+            <p className="mb-6">Inscrivez-vous ou venez profiter des performances lors de la Journée Culturelle ESGAE 2026</p>
             <Link href="/#localisation">
               <Button size="lg" className="rounded-2xl gap-2">
                 En savoir plus
