@@ -108,33 +108,15 @@ export default function ProgrammePage({ category }: ProgrammePageProps) {
       {/* Activities Section */}
       <section className="py-16 sm:py-24 bg-background">
         <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
-          <Reveal className="mb-16">
-            <SectionTitle
-              title="Explorez nos activités"
-              subtitle="Découvrez toutes les animations et performances prévues pour cette édition"
-            />
-          </Reveal>
+         
 
-          {/* Activities Grid */}
-          <Reveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {ACTIVITIES.map((activity, index) => (
-                <ActivityCard
-                  key={index}
-                  icon={activity.icon}
-                  title={activity.title}
-                  description={activity.description}
-                  image={activity.image}
-                  delay={index * 0.1}
-                />
-              ))}
-            </div>
-          </Reveal>
+
+         
         </div>
       </section>
 
       {/* Other Programmes Links */}
-      
+      <ProgrammeLinks />
     </>
   );
 }

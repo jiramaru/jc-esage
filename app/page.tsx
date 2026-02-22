@@ -8,6 +8,7 @@ import EventInfo from "@/components/EventInfo";
 import MapSection from "@/components/MapSection";
 import Footer from "@/components/Footer";
 import BackgroundDecor from "@/components/BackgroundDecor";
+import ProgrammeHero from "@/components/ProgrammeHero";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <Countdown />
       <About />
+      <ProgrammeHero title="Venez célébrer avec nous" subtitle="" backgroundImage="/assets/imgs/dance/dance-14.jpeg" />
       <Programme />
       <Gallery />
       <EventInfo />

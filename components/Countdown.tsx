@@ -98,7 +98,7 @@ function RollingDigitColumn({ digit, delay = 0 }: RollingDigitColumnProps) {
   return (
     <div
       ref={columnRef}
-      className="relative w-8 h-20 sm:w-10 sm:h-20 lg:w-12 lg:h-24 overflow-hidden bg-gradient-hero rounded-sm shadow-inner border border-border/20 lg:text-xl"
+      className="relative w-8 h-20 sm:w-10 sm:h-20 lg:w-12 lg:h-24 overflow-hidden bg-gradient-hero rounded-xl shadow-inner border border-border/20 lg:text-xl"
       style={{ perspective: "200px" }}
     >
       <div className="static-digit absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl lg:text-5xl font-bold countdown-digit text-primary leading-none">
@@ -121,7 +121,7 @@ function CountdownUnit({ value, label, delay = 0 }: CountdownUnitProps) {
   return (
     <Reveal delay={delay} className="shrink-0" y={10} scale={0.98}>
       <div className="bg-gradient-hero rounded-xl px-3 py-4 w-28 sm:w-32 text-center">
-        <div className="flex justify-center gap-1 rounded-sm py-8">
+        <div className="flex justify-center gap-1 rounded-xl py-8">
           {digits.map((d, i) => (
             <RollingDigitColumn key={`${label}-${i}`} digit={d} delay={delay + i * 0.04} />
           ))}
@@ -235,7 +235,7 @@ export default function Countdown() {
               </div>
             </Reveal>
 
-            <Card className="rounded-sm border bg-card/80 backdrop-blur-sm shadow-sm">
+            <Card className="rounded-2xl border bg-card/80 backdrop-blur-sm shadow-sm">
               <CardContent className="p-4 sm:p-6">
                 <div className="flex items-stretch gap-3 sm:gap-4 justify-start sm:justify-center overflow-x-auto">
                   <CountdownUnit value={countdown.days} label="Jours" delay={0.2} />

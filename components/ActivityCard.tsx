@@ -61,9 +61,9 @@ export default function ActivityCard({
         />
       </div>
 
-      <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground/90">
-        <span className="underline-offset-4 group-hover:underline">Voir plus</span>
-        <ArrowRight className="h-4 w-4 motion-safe:group-hover:translate-x-1 transition-transform duration-300" />
+      <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground/90 hover:text-primary transition-colors">
+        <span className="underline-offset-4 group-hover:underline group-hover:text-primary">Voir plus</span>
+        <ArrowRight className="h-4 w-4 motion-safe:group-hover:translate-x-1 transition-transform duration-300 group-hover:text-primary" />
       </div>
 
       {/* Bottom accent line */}
@@ -72,7 +72,7 @@ export default function ActivityCard({
   );
 
   const card = (
-    <Card className="h-full cursor-pointer rounded-2xl border-border/70 shadow-sm transition-all duration-300 group-hover:shadow-xl hover:border-primary/50 motion-safe:hover:-translate-y-1 motion-safe:hover:scale-[1.02] active:scale-[0.99]">
+    <Card className="h-full cursor-pointer rounded-2xl border-border/70 shadow-sm transition-all duration-300 group-hover:shadow-xl hover:border-primary group-hover:border-primary group-hover:text-primary motion-safe:hover:-translate-y-1 motion-safe:hover:scale-[1.02] active:scale-[0.99]">
       <CardContent className="p-8">
         {cardContent}
       </CardContent>
