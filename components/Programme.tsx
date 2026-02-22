@@ -50,6 +50,7 @@ const ACTIVITIES = [
   },
 ];
 
+
 export default function Programme() {
   return (
     <section className="py-16 sm:py-24 bg-background">
