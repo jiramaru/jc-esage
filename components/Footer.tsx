@@ -3,6 +3,8 @@
 import { Facebook, Instagram, Twitter, Mail, ArrowUp, Heart } from "lucide-react";
 import { useState, useEffect } from "react";
 
+import Reveal from "./Reveal";
+
 export default function Footer() {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
@@ -25,10 +27,7 @@ export default function Footer() {
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* About */}
-          <div
-            className="space-y-3 slide-in-up"
-            style={{ animationDelay: "0.05s" }}
-          >
+          <Reveal className="space-y-3" delay={0.05}>
             <h3 className="text-2xl font-bold font-montserrat gradient-hero bg-clip-text text-white px-2 rounded">ESGAE la grande école</h3>
             <p className="text-white/70">
               Célébrant l&apos;éducation et la culture comme moteurs du progrès
@@ -37,13 +36,10 @@ export default function Footer() {
             <p className="text-sm text-white/50">
               AEA - Association des étudiants et anciens
             </p>
-          </div>
+          </Reveal>
 
           {/* Quick Links */}
-          <div
-            className="slide-in-up"
-            style={{ animationDelay: "0.1s" }}
-          >
+          <Reveal delay={0.1}>
             <h3 className="text-lg font-bold mb-4 font-montserrat">Liens</h3>
             <ul className="space-y-2">
               {[
@@ -64,13 +60,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
           {/* Social Links */}
-          <div
-            className="slide-in-up"
-            style={{ animationDelay: "0.15s" }}
-          >
+          <Reveal delay={0.15}>
             <h3 className="text-lg font-bold mb-4 font-montserrat">Nous suivre</h3>
             <div className="flex gap-4 mb-6">
               {[
@@ -89,7 +82,7 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
 
         {/* Divider */}

@@ -11,7 +11,7 @@ export default function SectionTitle({
 }: SectionTitleProps) {
   return (
     <div
-      className={`space-y-2 slide-in-up ${centered ? "text-center" : ""}`}
+      className={`space-y-2 ${centered ? "text-center" : ""}`}
     >
       <h2 className="text-4xl sm:text-5xl font-bold text-foreground font-montserrat">
         {title}
