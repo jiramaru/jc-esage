@@ -329,7 +329,7 @@ export default function Hero() {
         </Reveal>
 
         {/* Scroll arrow bounce animation: delay 0.9s. Adjust to change when arrow appears */}
-        <Reveal className="absolute bottom-8 left-1/2 transform -translate-x-1/2" delay={0.3}>
+        <Reveal className="absolute bottom-[-5rem] left-1/2 transform -translate-x-1/2" delay={0.3}>
           <div className="animate-bounce">
             <ArrowDown className="text-accent" size={32} />
           </div>

@@ -30,18 +30,7 @@ export default function ProgrammeHero({ title, subtitle, backgroundImage }: Prog
       
       {/* Content */}
       <div className="relative z-10 flex flex-col justify-center items-center h-full min-h-[60vh] px-4 sm:px-6 lg:px-8">
-        {/* Back Button */}
-        <Reveal delay={0.1}>
-          <Link href="/">
-            <Button
-              variant="outline"
-              className="mb-8 bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 hover:border-white/30 transition-all duration-300"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Retour à l'accueil
-            </Button>
-          </Link>
-        </Reveal>
+
         
         {/* Title and Subtitle */}
         <Reveal delay={0.2}>
