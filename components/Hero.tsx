@@ -24,20 +24,21 @@ export default function Hero() {
     el.textContent = "";
 
     const state = { i: 0 };
+    // repeatDelay: 0.6s = time between typing cycles. Adjust to change pause between repeats
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.6 });
 
     tl.to(state, {
       i: full.length,
-      duration: Math.min(4.6, Math.max(2.6, full.length * 0.18)),
+      duration: Math.min(4.6, Math.max(2.6, full.length * 0.18)), // Type-in duration: adjust 0.18 multiplier for faster/slower typing
       ease: "none",
       onUpdate: () => {
         el.textContent = full.slice(0, Math.round(state.i));
       },
     })
-      .to({}, { duration: 1.0 })
+      .to({}, { duration: 1.0 }) // Pause between typing and deleting: 1.0s
       .to(state, {
         i: 0,
-        duration: Math.min(2.6, Math.max(1.6, full.length * 0.1)),
+        duration: Math.min(2.6, Math.max(1.6, full.length * 0.1)), // Type-out duration: adjust 0.1 multiplier for faster/slower deletion
         ease: "none",
         onUpdate: () => {
           el.textContent = full.slice(0, Math.round(state.i));
@@ -53,24 +54,27 @@ export default function Hero() {
     const el = esgaeRef.current;
     if (!el) return;
 
+    // repeatDelay: 0.4s = time between glow cycles. Adjust to change pause between repeats
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.4 });
 
     // Shimmer/Glow effect with sweeping light
     tl.to(el, {
       backgroundPosition: "200% center",
-      duration: 2,
+      duration: 2, // Gradient sweep duration: adjust to make shimmer faster or slower
       ease: "power1.inOut",
     }, 0)
       .to(el, {
+        // Glow bright: modify rgba values to change glow color and intensity
         textShadow: "0 0 30px rgba(16, 185, 129, 0.6), inset 0 0 20px rgba(16, 185, 129, 0.2)",
-        duration: 1,
+        duration: 1, // Glow fade-in duration: adjust for faster/slower effect
         ease: "sine.inOut",
       }, 0)
       .to(el, {
+        // Glow fade: dim the glow effect
         textShadow: "0 0 5px rgba(16, 185, 129, 0.2), inset 0 0 5px rgba(16, 185, 129, 0.05)",
-        duration: 1,
+        duration: 1, // Glow fade-out duration: adjust for faster/slower effect
         ease: "sine.inOut",
-      }, 1);
+      }, 1); // Timeline position: 1s (when first glow completes)
 
     // Add shimmer gradient background
     el.style.backgroundImage = "linear-gradient(90deg, transparent 0%, rgba(16, 185, 129, 0.5) 50%, transparent 100%)";
@@ -95,10 +99,11 @@ export default function Hero() {
     let width = 0;
     let height = 0;
 
-    const particles = Array.from({ length: 120 }).map(() => ({
+    // Generate particles with random properties. Adjust length for more/less particles, and modify property ranges for different behaviors
+    const particles = Array.from({ length: 40  }).map(() => ({
       x: Math.random(),
-      y: Math.random(),
-      r: 1.2 + Math.random() * 3.5,
+      y: Math.random() * 0.5, // Keep particles in upper half for higher positioning
+      r: 2.4 + Math.random() * 7.0, // Doubled from 1.2 + Math.random() * 3.5
       vx: (-0.5 + Math.random()) * 0.05,
       vy: (-0.5 + Math.random()) * 0.05,
       rot: Math.random() * Math.PI * 2,
@@ -137,6 +142,7 @@ export default function Hero() {
       const scroll = scrollYRef.current;
       const progress = Math.max(0, Math.min(1, scroll / 900));
 
+      // Mouse smoothing factor: 0.15 = smooth response (0=instant, 1=no lag). Adjust for more/less responsiveness
       mouseRef.current.x += (mouseRef.current.tx - mouseRef.current.x) * 0.15;
       mouseRef.current.y += (mouseRef.current.ty - mouseRef.current.y) * 0.15;
       const mx = mouseRef.current.x;
@@ -146,9 +152,12 @@ export default function Hero() {
       ctx.clearRect(0, 0, width, height);
 
       for (const p of particles) {
-        const speed = 0.018;
+        const speed = 0.018; // Base particle speed: higher=faster, lower=slower
+        // X-axis: 0.012 = scroll acceleration. Adjust to change horizontal scroll effect
         p.x += p.vx * speed * (1 + progress * 0.012);
+        // Y-axis: 0.000005=gravity, 0.009=scroll acceleration. Adjust for floating/falling effect
         p.y += (p.vy * speed + progress * 0.000005) * (1 + progress * 0.009);
+        // Rotation: 0.015 = spin speed increase on scroll. Adjust for faster/slower spin
         p.rot += p.vr * (1 + progress * 0.015);
 
         if (p.x < -0.05) p.x = 1.05;
@@ -156,18 +165,24 @@ export default function Hero() {
         if (p.y < -0.05) p.y = 1.05;
         if (p.y > 1.05) p.y = -0.05;
 
+        // Position X: 14=wave amplitude, 35/15=mouse influence. Adjust for horizontal movement effect
         const px =
           p.x * width +
           Math.sin(progress * Math.PI) * 14 +
           mx * (35 + progress * 15);
+        // Position Y: 42=scroll drift, 28/10=mouse influence. Adjust for vertical motion effect
         const py = p.y * height - progress * 42 + my * (28 + progress * 10);
+        // Opacity: 0.15=minimum, 0.25=base, 0.1=fade on scroll. Adjust for particle visibility
         const alpha = Math.max(0.15, 0.25 + (1 - progress) * 0.1);
 
+        // Particle colors: Green (16,185,129) or Orange (217,142,4). Modify RGB values for different colors
+        // 0.8 = opacity multiplier. Adjust for brighter/dimmer particles
         const fill =
           p.tint === "green"
             ? `rgba(16, 185, 129, ${Math.min(1, alpha * 0.8)})`
             : `rgba(217, 142, 4, ${Math.min(1, alpha * 0.8)})`;
 
+        // Particle size: 0.9=base scale, 0.25=growth on scroll. Adjust for bigger/smaller particles
         const size = (p.r * 0.9) * (1 + progress * 0.25);
 
         ctx.save();
@@ -244,6 +259,7 @@ export default function Hero() {
       />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        {/* Badge slide-in animation: delay 0.1s. Adjust to change when badge appears */}
         <div
           className="flex justify-center slide-in-up"
           style={{ animationDelay: "0.1s" }}
@@ -257,6 +273,7 @@ export default function Hero() {
           </Badge>
         </div>
 
+        {/* Title slide-in animation: delay 0.2s. Adjust to change when title appears */}
         <div
           className="space-y-2 slide-in-up"
           style={{ animationDelay: "0.2s" }}
@@ -279,6 +296,7 @@ export default function Hero() {
           </h1>
         </div>
 
+        {/* Subtitle slide-in animation: delay 0.3s. Adjust to change when subtitle appears */}
         <p
           className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto slide-in-up font-light"
           style={{ animationDelay: "0.3s" }}
@@ -290,6 +308,7 @@ export default function Hero() {
         </p>
 
 
+        {/* Buttons slide-in animation: delay 0.7s. Adjust to change when buttons appear */}
         <div
           className="flex flex-col sm:flex-row gap-4 justify-center mt-10 slide-in-up"
           style={{ animationDelay: "0.7s" }}
@@ -317,6 +336,7 @@ export default function Hero() {
           </Button>
         </div>
 
+        {/* Scroll arrow bounce animation: delay 0.9s. Adjust to change when arrow appears */}
         <div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bounce-in"
           style={{ animationDelay: "0.9s" }}
