@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import GalleryGlobe from "@/components/GalleryGlobe";
 import ActivityNav from "@/components/ActivityNav";
 
+
+
 export default function MissPage() {
   const galleryImages = [
     "",

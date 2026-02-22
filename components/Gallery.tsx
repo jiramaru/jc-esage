@@ -16,35 +16,214 @@ import {
 
 const GALLERY_IMAGES = [
   {
-    url: "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Concert et performance musicale",
+    src: "/assets/imgs/jc/jc-01.jpeg",
+    alt: "",
   },
   {
-    url: "https://images.pexels.com/photos/3998216/pexels-photo-3998216.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Danse et performances culturelles",
+    src: "/assets/imgs/jc/jc-02.jpeg",
+    alt: "",
   },
   {
-    url: "https://images.pexels.com/photos/2263437/pexels-photo-2263437.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Public et spectateurs",
+    src: "/assets/imgs/jc/jc-03.jpeg",
+    alt: "",
   },
   {
-    url: "https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Performance scénique",
+    src: "/assets/imgs/jc/jc-04.jpeg",
+    alt: "",
   },
   {
-    url: "https://images.pexels.com/photos/3839612/pexels-photo-3839612.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Ambiance festive",
+    src: "/assets/imgs/jc/jc-05.jpeg",
+    alt: "",
   },
   {
-    url: "https://images.pexels.com/photos/3639729/pexels-photo-3639729.jpeg?auto=compress&cs=tinysrgb&w=600",
-    alt: "Moment de la Journée Culturelle",
+    src: "/assets/imgs/jc/jc-06.jpeg",
+    alt: "",
   },
-];
+  {
+    src: "/assets/imgs/jc/jc-07.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-08.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-09.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-10.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-11.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-12.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-13.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-14.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-15.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-16.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-17.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-18.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-19.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-20.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-21.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-22.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-23.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-24.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-25.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-26.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-27.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-28.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-29.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-30.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-31.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-32.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-33.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-34.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-35.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-36.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-37.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-38.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-39.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-40.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-41.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-42.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-43.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-44.jpeg",
+    alt: "",
+  },
+  {
+    src: "/assets/imgs/jc/jc-45.jpeg",
+    alt: "",
+  },
+] as const;
 
 export default function Gallery() {
+  const [lightboxIndex, setLightboxIndex] = React.useState<number | null>(null);
+
   const autoplay = React.useRef(
     Autoplay({ delay: 3200, stopOnInteraction: true, stopOnMouseEnter: true })
   );
+
+  const closeLightbox = React.useCallback(() => {
+    setLightboxIndex(null);
+  }, []);
+
+  React.useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [lightboxIndex, closeLightbox]);
 
   return (
     <section
@@ -78,11 +257,21 @@ export default function Gallery() {
                 key={index}
                 className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
               >
-                <div className="group relative overflow-hidden rounded-2xl h-64 cursor-pointer shadow-md hover:shadow-2xl transition-shadow duration-300">
+                <div
+                  className="group relative overflow-hidden rounded-2xl h-64 lg:h-80 xl:h-96 cursor-pointer shadow-md hover:shadow-2xl transition-shadow duration-300"
+                  onClick={() => setLightboxIndex(index)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") setLightboxIndex(index);
+                  }}
+                >
                   <Image
-                    src={image.url}
+                    src={image.src}
                     alt={image.alt}
                     fill
+                    loading="lazy"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   {/* Overlay */}
@@ -99,7 +288,36 @@ export default function Gallery() {
           <CarouselPrevious className="hidden sm:inline-flex -left-4 bg-background/80 backdrop-blur border-border" />
           <CarouselNext className="hidden sm:inline-flex -right-4 bg-background/80 backdrop-blur border-border" />
         </Carousel>
+
+        {lightboxIndex !== null ? (
+          <div
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+            onClick={closeLightbox}
+            role="dialog"
+            aria-modal="true"
+          >
+            <div
+              className="absolute inset-0 p-2 sm:p-8 flex items-center justify-center"
+            >
+              <div
+                className="relative w-[86vw] h-[70vh] sm:w-full sm:h-full max-w-6xl max-h-[90vh] sm:max-h-[85vh]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Image
+                  src={GALLERY_IMAGES[lightboxIndex].src}
+                  alt={GALLERY_IMAGES[lightboxIndex].alt}
+                  fill
+                  priority
+                  sizes="100vw"
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        ) : null}
       </div>
     </section>
   );
 }
+
+
