@@ -18,7 +18,7 @@ const ACTIVITIES = [
     title: "Danse",
     description:
       "Vivez des performances de danse captivantes célébrant notre héritage culturel",
-    image: "/assets/imgs/dance/dance-01.jpeg",
+    image: "/assets/imgs/dance/dance-09.jpeg",
   },
   {
     icon: Mic,
@@ -32,7 +32,7 @@ const ACTIVITIES = [
     title: "Élection Miss ESGAE",
     description:
       "Participez à l'une des sections les plus attendues de la Journée Culturelle",
-    image: "/assets/imgs/jc/jc-01.jpeg",
+    image: "/assets/imgs/miss/miss-05.jpeg",
   },
   {
     icon: Drama,
@@ -46,9 +46,10 @@ const ACTIVITIES = [
     title: "Défilé",
     description:
       "Assistez au défilé coloré des nations et départements représentés",
-    image: "/assets/imgs/defile/defile-01.jpeg",
+    image: "/assets/imgs/defile/defile-03.jpeg",
   },
 ];
+
 
 export default function Programme() {
   return (

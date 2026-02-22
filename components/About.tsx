@@ -2,29 +2,28 @@
 
 import SectionTitle from "./SectionTitle";
 import Reveal from "./Reveal";
-import { GraduationCap, Users, Music, Globe } from "lucide-react";
+import { BookOpen, Users, Palette, Globe } from "lucide-react";
 
 const FEATURES = [
   {
-    icon: GraduationCap,
+    icon: BookOpen,
     title: "Éducation",
-    description:
-      "Partager le savoir et les connaissances à travers la culture",
+    description: "Promouvoir le partage des connaissances et du savoir à travers la culture, en faisant de l'apprentissage un levier d'ouverture, de réflexion et de transmission.",
   },
   {
     icon: Users,
     title: "Communauté",
-    description: "Rassembler les étudiants autour d'une passion commune",
+    description: "Fédérer les étudiants autour de passions communes, encourager l'échange, la solidarité et la création de liens durables au sein d'une communauté engagée.",
   },
   {
-    icon: Music,
+    icon: Palette,
     title: "Culture",
-    description: "Célébrer la diversité culturelle et artistique",
+    description: "Valoriser et célébrer la diversité culturelle et artistique sous toutes ses formes, en mettant en lumière les identités et les talents.",
   },
   {
     icon: Globe,
     title: "Progrès",
-    description: "Moteurs du progrès social et du développement",
+    description: "Démontrer que la culture est un moteur essentiel du développement social, économique et humain, capable d'inspirer l'innovation et de bâtir l'avenir.",
   },
 ];
 
@@ -43,19 +42,25 @@ export default function About() {
         {/* Main Text */}
         <Reveal className="mb-16 max-w-3xl mx-auto space-y-6" delay={0.05}>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            La Journée Culturelle approche à grands pas. Dans deux mois, ESGAE
-            organisera sa Journée Culturelle, un événement phare qui célèbre la
-            richesse de nos traditions et talents.
+            Née il y'a 4 ans, la Journée Culturelle est l'un des événements phares organisés par l'association des étudiants et anciens (AEA) sous la supervision de l'Ecole Supérieure de Gestion et d'Administration des Entreprises (ESGAE).
           </p>
           <p className="text-lg text-foreground font-semibold leading-relaxed">
-            Si vous avez manqué l&apos;édition passée, ne ratez pas celle de cette
-            année,
-            <span className="text-primary"> car demain sera meilleur qu&apos;hier.</span>
+            Cette journée devenue emblématique, loin d'être anodine, est à ce jour le rendez-vous étudiant à ne pas manquer.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Cet événement réunit nos étudiants dans une célébration commune de
-            l&apos;art, de la musique, de la danse et du théâtre. C&apos;est un moment
-            inoubliable de partage, de découverte et de fierté culturelle.
+            La journée culturelle est l'événement qui nous rassemble autour d'une seule et même cause : la célébration de l'interculturalité.
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Participer à cet événement, c'est prôner la culture et reconnaître son importance.
+          </p>
+          <p className="text-lg text-foreground font-semibold leading-relaxed">
+            Vibrante et stimulante, participer à cette belle et grande journée ne vous fera regretter qu'une seule chose : devoir attendre une année supplémentaire avant la prochaine édition.
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Cet événement rassemble nos étudiants ainsi que tous ceux qui veulent participer, dans une célébration commune de l'art, de la musique, de la danse et du théâtre. C'est un moment unique et inoubliable de partage, de découverte et de fierté culturelle.
+          </p>
+          <p className="text-lg text-foreground font-semibold leading-relaxed">
+            Si vous avez manqué l'édition passée, ne ratez pas celle de cette année, car demain sera mieux qu'hier.
           </p>
         </Reveal>
 
