@@ -5,6 +5,8 @@ import { ArrowDown, Calendar, MapPin, Sparkles } from "lucide-react";
 import Link from "next/link";
 import gsap from "gsap";
 
+import Reveal from "./Reveal";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -260,10 +262,7 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
         {/* Badge slide-in animation: delay 0.1s. Adjust to change when badge appears */}
-        <div
-          className="flex justify-center slide-in-up"
-          style={{ animationDelay: "0.1s" }}
-        >
+        <Reveal className="flex justify-center" delay={0.05}>
           <Badge
             variant="secondary"
             className="bg-accent text-accent-foreground font-medium gap-2 px-4 py-2"
@@ -271,13 +270,10 @@ export default function Hero() {
             <Sparkles className="w-4 h-4" />
             Samedi 04 Avril 2026 • 09h00
           </Badge>
-        </div>
+        </Reveal>
 
         {/* Title slide-in animation: delay 0.2s. Adjust to change when title appears */}
-        <div
-          className="space-y-2 slide-in-up"
-          style={{ animationDelay: "0.2s" }}
-        >
+        <Reveal className="space-y-2" delay={0.1}>
           <h1 className="font-montserrat text-5xl sm:text-6xl md:text-7xl font-bold leading-tight">
             <span className="text-foreground block">
               <span ref={titleTypedRef} />
@@ -294,25 +290,21 @@ export default function Hero() {
               Edition 2026
             </span>
           </h1>
-        </div>
+        </Reveal>
 
         {/* Subtitle slide-in animation: delay 0.3s. Adjust to change when subtitle appears */}
-        <p
-          className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto slide-in-up font-light"
-          style={{ animationDelay: "0.3s" }}
-        >
-          Thème :{" "}
-          <span className="font-semibold text-foreground bg-gradient-hero bg-clip-text ">
-            Éducation et Culture, moteurs du Progrès Social
-          </span>
-        </p>
+        <Reveal delay={0.15}>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+            Thème :{" "}
+            <span className="font-semibold text-foreground bg-gradient-hero bg-clip-text ">
+              Éducation et Culture, moteurs du Progrès Social
+            </span>
+          </p>
+        </Reveal>
 
 
         {/* Buttons slide-in animation: delay 0.7s. Adjust to change when buttons appear */}
-        <div
-          className="flex flex-col sm:flex-row gap-4 justify-center mt-10 slide-in-up"
-          style={{ animationDelay: "0.7s" }}
-        >
+        <Reveal className="flex flex-col sm:flex-row gap-4 justify-center mt-10" delay={0.2}>
           <Button
             asChild
             size="lg"
@@ -334,17 +326,14 @@ export default function Hero() {
               Localisation
             </Link>
           </Button>
-        </div>
+        </Reveal>
 
         {/* Scroll arrow bounce animation: delay 0.9s. Adjust to change when arrow appears */}
-        <div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bounce-in"
-          style={{ animationDelay: "0.9s" }}
-        >
+        <Reveal className="absolute bottom-8 left-1/2 transform -translate-x-1/2" delay={0.3}>
           <div className="animate-bounce">
             <ArrowDown className="text-accent" size={32} />
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

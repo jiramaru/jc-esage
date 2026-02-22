@@ -1,6 +1,7 @@
 "use client";
 
 import SectionTitle from "./SectionTitle";
+import Reveal from "./Reveal";
 import { GraduationCap, Users, Music, Globe } from "lucide-react";
 
 const FEATURES = [
@@ -32,18 +33,15 @@ export default function About() {
     <section className="py-16 sm:py-24 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <div className="mb-16 fade-in">
+        <Reveal className="mb-16">
           <SectionTitle
             title="Pourquoi la Journée Culturelle ?"
             subtitle="Éducation et Culture, moteurs du Progrès Social"
           />
-        </div>
+        </Reveal>
 
         {/* Main Text */}
-        <div
-          className="mb-16 max-w-3xl mx-auto space-y-6 slide-in-up"
-          style={{ animationDelay: "0.1s" }}
-        >
+        <Reveal className="mb-16 max-w-3xl mx-auto space-y-6" delay={0.05}>
           <p className="text-lg text-muted-foreground leading-relaxed">
             La Journée Culturelle approche à grands pas. Dans deux mois, ESGAE
             organisera sa Journée Culturelle, un événement phare qui célèbre la
@@ -59,24 +57,22 @@ export default function About() {
             l&apos;art, de la musique, de la danse et du théâtre. C&apos;est un moment
             inoubliable de partage, de découverte et de fierté culturelle.
           </p>
-        </div>
+        </Reveal>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {FEATURES.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-card rounded-2xl p-8 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 border border-border/50 hover:border-primary/30 scale-in"
-              style={{ animationDelay: `${0.2 + index * 0.05}s` }}
-            >
-              <div className="w-12 h-12 bg-gradient-hero rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                <feature.icon className="text-primary" size={24} />
+            <Reveal key={index} delay={0.05 + index * 0.05}>
+              <div className="bg-card rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-border/50 hover:border-primary/30 h-full flex flex-col">
+                <div className="w-12 h-12 bg-gradient-hero rounded-xl flex items-center justify-center mb-4 shadow-lg flex-shrink-0">
+                  <feature.icon className="text-primary" size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2 font-montserrat">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed flex-grow">{feature.description}</p>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2 font-montserrat">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

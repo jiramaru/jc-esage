@@ -1,8 +1,10 @@
 "use client";
 
-import * as React from "react";
+import React from "react";
+import { X, ImageIcon } from "lucide-react";
 import Image from "next/image";
-import { ImageIcon } from "lucide-react";
+
+import Reveal from "./Reveal";
 
 import Autoplay from "embla-carousel-autoplay";
 
@@ -232,17 +234,17 @@ export default function Gallery() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <div
-          className="text-center mb-16 space-y-2 fade-in"
-        >
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground font-montserrat flex items-center justify-center gap-3">
-            <ImageIcon className="w-10 h-10 text-primary" />
-            Retour en images
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Revivez les moments de l&apos;édition précédente
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16 space-y-2">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground font-montserrat flex items-center justify-center gap-3">
+              <ImageIcon className="w-10 h-10 text-primary" />
+              Retour en images
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Revivez les moments de l&apos;édition précédente
+            </p>
+          </div>
+        </Reveal>
 
         {/* Carousel */}
         <Carousel
@@ -300,7 +302,7 @@ export default function Gallery() {
               className="absolute inset-0 p-2 sm:p-8 flex items-center justify-center"
             >
               <div
-                className="relative w-[86vw] h-[70vh] sm:w-full sm:h-full max-w-6xl max-h-[90vh] sm:max-h-[85vh]"
+                className="relative w-[86vw] h-[70vh] sm:w-full sm:h-full max-w-6xl max-h-[90vh] sm:max-h-[85vh] rounded-2xl overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
               >
                 <Image
@@ -309,8 +311,16 @@ export default function Gallery() {
                   fill
                   priority
                   sizes="100vw"
-                  className="object-contain"
+                  className="object-contain rounded-2xl"
                 />
+                {/* Close button */}
+                <button
+                  onClick={closeLightbox}
+                  className="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors duration-200 backdrop-blur-sm"
+                  aria-label="Close lightbox"
+                >
+                  <X size={20} />
+                </button>
               </div>
             </div>
           </div>

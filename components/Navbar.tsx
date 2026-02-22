@@ -13,6 +13,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+import Reveal from "./Reveal";
+
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -66,17 +68,18 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-1">
             {links.map((link, index) => (
               <Link key={link.label} href={link.href}>
-                <Button
-                  variant="ghost"
-                  className={`text-white/85 hover:text-white hover:bg-white/10 transition-all duration-300 gap-2 fade-in`}
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                >
-                  {(() => {
-                    const Icon = link.icon as LucideIcon
-                    return <Icon className="size-4" />
-                  })()}
-                  <span className="hidden sm:inline">{link.label}</span>
-                </Button>
+                <Reveal delay={index * 0.03} y={8}>
+                  <Button
+                    variant="ghost"
+                    className={`text-white/85 hover:text-white hover:bg-white/10 transition-all duration-300 gap-2`}
+                  >
+                    {(() => {
+                      const Icon = link.icon as LucideIcon
+                      return <Icon className="size-4" />
+                    })()}
+                    <span className="hidden sm:inline">{link.label}</span>
+                  </Button>
+                </Reveal>
               </Link>
             ))}
           </div>

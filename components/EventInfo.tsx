@@ -1,6 +1,7 @@
 "use client";
 
 import SectionTitle from "./SectionTitle";
+import Reveal from "./Reveal";
 import { MapPin, Clock, Ticket, DollarSign, Info } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -39,23 +40,19 @@ export default function EventInfo() {
       className="py-16 sm:py-24 bg-muted/30 relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 fade-in">
+        <Reveal className="mb-16">
           <SectionTitle
             title="Informations Pratiques"
             subtitle="Tout ce que vous devez savoir"
           />
-        </div>
+        </Reveal>
 
         {/* Info Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {EVENT_INFO.map((info, index) => {
             const Icon = info.icon;
             return (
-              <div
-                key={index}
-                className="group scale-in"
-                style={{ animationDelay: `${0.1 + index * 0.05}s` }}
-              >
+              <Reveal key={index} delay={0.05 + index * 0.05} className="group">
                 <Card className="rounded-2xl border-border/70 shadow-sm transition-all duration-300 group-hover:shadow-lg hover:border-primary/30 hover:scale-101 h-full">
                   <CardContent className="p-8">
                     {/* Icon */}
@@ -77,29 +74,28 @@ export default function EventInfo() {
                     <p className="text-sm text-accent font-semibold">{info.subvalue}</p>
                   </CardContent>
                 </Card>
-              </div>
+              </Reveal>
             );
           })}
         </div>
 
         {/* Important Note */}
-        <div
-          className="mt-16 bg-primary/10 border border-primary/30 rounded-2xl p-6 max-w-2xl mx-auto slide-in-up flex gap-4"
-          style={{ animationDelay: "0.3s" }}
-        >
-          <Info className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-          <div>
-            <p className="text-foreground font-semibold mb-2 flex items-center gap-2">
-              <Info className="size-4 text-primary" />
-              Important
-            </p>
-            <p className="text-muted-foreground">
-              Arrivez à l&apos;heure pour profiter au maximum de l&apos;événement. Les
-              inscriptions se feront à l&apos;entrée. Préparez votre présence pour une
-              journée inoubliable !
-            </p>
+        <Reveal delay={0.1}>
+          <div className="mt-16 bg-primary/10 border border-primary/30 rounded-2xl p-6 max-w-2xl mx-auto flex gap-4">
+            <Info className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
+            <div>
+              <p className="text-foreground font-semibold mb-2 flex items-center gap-2">
+                <Info className="size-4 text-primary" />
+                Important
+              </p>
+              <p className="text-muted-foreground">
+                Arrivez à l&apos;heure pour profiter au maximum de l&apos;événement. Les
+                inscriptions se feront à l&apos;entrée. Préparez votre présence pour une
+                journée inoubliable !
+              </p>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
