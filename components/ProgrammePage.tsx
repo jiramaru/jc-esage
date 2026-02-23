@@ -39,7 +39,7 @@ const ACTIVITIES = [
     title: "Élection Miss ESGAE",
     description:
       "Participez à l'une des sélections les plus attendues de la journée culturelle. Et, votez pour l'étudiante que vous aimeriez voir gagner.",
-    image: "/assets/imgs/jc/jc-01.jpeg",
+    image: "/assets/imgs/miss/miss-07.jpeg",
   },
   {
     icon: Drama,
@@ -150,7 +150,7 @@ export default function ProgrammePage({ category }: ProgrammePageProps) {
       miss: {
         title: "Élection Miss ESGAE",
         subtitle: "Participez à l'un des moments les plus attendus de la Journée Culturelle, où la beauté et l'intelligence se rencontrent",
-        image: "/assets/imgs/jc/jc-01.jpeg",
+        image: "/assets/imgs/miss/miss-07.jpeg",
         description: [
           "L'Élection Miss ESGAE est bien plus qu'un concours de beauté. C'est une célébration de confiance, de charisme et de représentation féminine. Cette section met en lumière les femmes exceptionnelles de notre communauté académique.",
           "Les candidates présentent leur talent, leur personnalité et leur vision, créant un spectacle captivant et inspirant pour le public. C'est une opportunité de briller, de se connecter avec la communauté et de représenter les valeurs d'ESGAE.",
@@ -277,11 +277,13 @@ export default function ProgrammePage({ category }: ProgrammePageProps) {
   return (
     <>
       {/* Hero Section */}
-      <ProgrammeHero
-        title={categoryData.title}
-        subtitle={categoryData.subtitle}
-        backgroundImage={categoryData.image}
-      />
+      <div className="lg:pt-0">
+        <ProgrammeHero
+          title={categoryData.title}
+          subtitle={categoryData.subtitle}
+          backgroundImage={categoryData.image}
+        />
+      </div>
 
       {/* Category Description */}
       {category && (

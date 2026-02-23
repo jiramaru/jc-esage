@@ -2,9 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import Reveal from "./Reveal";
 
 interface ProgrammeHeroProps {
@@ -13,37 +10,38 @@ interface ProgrammeHeroProps {
   backgroundImage: string;
 }
 
-export default function ProgrammeHero({ title, subtitle, backgroundImage }: ProgrammeHeroProps) {
+export default function ProgrammeHero({
+  title,
+  subtitle,
+  backgroundImage,
+}: ProgrammeHeroProps) {
   return (
-    <div className="relative min-h-[60vh] overflow-hidden">
+    <section className="relative w-full h-96 lg:h-screen overflow-hidden">
       {/* Background Image */}
       <Image
         src={backgroundImage}
-        alt={`${title} background`}
+        alt={title}
         fill
         className="object-cover"
         priority
       />
-      
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
-      
-      {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center items-center h-full min-h-[60vh] px-4 sm:px-6 lg:px-8">
 
-        
-        {/* Title and Subtitle */}
-        <Reveal delay={0.2}>
-          <div className="text-center space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-montserrat leading-tight">
-              {title}
-            </h1>
-            <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              {subtitle}
-            </p>
-          </div>
-        </Reveal>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/50" />
+
+      {/* Content */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="text-center text-white px-4 max-w-4xl">
+          <Reveal>
+            <h1 className="mb-4 text-5xl lg:text-7xl font-bold">{title}</h1>
+          </Reveal>
+          {subtitle && (
+            <Reveal delay={0.1}>
+              <p className="text-lg lg:text-2xl text-gray-200">{subtitle}</p>
+            </Reveal>
+          )}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
