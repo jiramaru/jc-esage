@@ -237,7 +237,7 @@ export default function Countdown() {
 
             <Card className="rounded-2xl border bg-card/80 backdrop-blur-sm shadow-sm">
               <CardContent className="p-6 sm:p-8">
-                <div className="flex items-stretch gap-4 sm:gap-6 justify-start sm:justify-center overflow-x-auto">
+                <div className="flex items-stretch gap-4 sm:gap-6 justify-start sm:justify-center overflow-x-auto overflow-y-hidden">
                   <CountdownUnit value={countdown.days} label="Jours" delay={0.2} />
                   <CountdownUnit value={countdown.hours} label="Heures" delay={0.25} />
                   <CountdownUnit value={countdown.minutes} label="Minutes" delay={0.3} />
