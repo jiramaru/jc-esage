@@ -75,7 +75,7 @@ export default function ProgrammePage({ category }: ProgrammePageProps) {
       dance: {
         title: "Danse",
         subtitle: "Vivez des performances de danse captivantes célébrant notre héritage culturel à travers des mouvements gracieux et des chorégraphies envoûtantes",
-        image: "/assets/imgs/dance/dance-01.jpeg",
+        image: "/assets/imgs/dance/dance-14.jpeg",
         description: [
           "La danse est l'une des sections les plus dynamiques et attendues de la Journée Culturelle ESGAE. C'est une célébration vibrante de la diversité culturelle à travers le mouvement, le rythme et l'expression artistique.",
           "Nos artistes talentueux présentent des performances mêlant danse traditionnelle africaine, danse contemporaine et styles modernes. Chaque performance raconte une histoire, transmet une émotion et célèbre notre patrimoine culturel.",
@@ -107,7 +107,15 @@ export default function ProgrammePage({ category }: ProgrammePageProps) {
           "/assets/imgs/dance/dance-03.jpeg",
           "/assets/imgs/dance/dance-04.jpeg",
           "/assets/imgs/dance/dance-05.jpeg",
-          "/assets/imgs/dance/dance-06.jpeg"
+          "/assets/imgs/dance/dance-06.jpeg",
+          "/assets/imgs/dance/dance-07.jpeg",
+          "/assets/imgs/dance/dance-08.jpeg",
+          "/assets/imgs/dance/dance-09.jpeg",
+          "/assets/imgs/dance/dance-10.jpeg",
+          "/assets/imgs/dance/dance-11.jpeg",
+          "/assets/imgs/dance/dance-12.jpeg",
+          "/assets/imgs/dance/dance-13.jpeg",
+
         ]
       },
       chant: {

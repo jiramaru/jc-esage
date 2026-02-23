@@ -310,22 +310,12 @@ export default function Hero() {
             size="lg"
             className="rounded-2xl gap-2 hover:shadow-lg hover:scale-105 transition-all duration-300"
           >
-            <Link href="#programme">
+            <Link href="#program">
               <Calendar className="w-4 h-4" />
               Voir le programme
             </Link>
           </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="rounded-2xl border-primary text-primary hover:bg-primary/5 gap-2 transition-all duration-300"
-          >
-            <Link href="#localisation">
-              <MapPin className="w-4 h-4" />
-              Localisation
-            </Link>
-          </Button>
+
         </Reveal>
 
         {/* Scroll arrow bounce animation: delay 0.9s. Adjust to change when arrow appears */}
