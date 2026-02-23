@@ -30,7 +30,7 @@ const FEATURES = [
 export default function About() {
   return (
     <section className="py-16 sm:py-24 bg-background">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-8 p-4">
         {/* Title */}
         <Reveal className="mb-16">
           <SectionTitle
@@ -41,25 +41,25 @@ export default function About() {
 
         {/* Main Text */}
         <Reveal className="mb-16 max-w-3xl mx-auto space-y-6 sm:space-y-8" delay={0.05}>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed">
             Née il y'a 4 ans, la Journée Culturelle est l'un des événements phares organisés par l'association des étudiants et anciens (AEA) sous la supervision de l'Ecole Supérieure de Gestion et d'Administration des Entreprises (ESGAE).
           </p>
-          <p className="text-lg text-foreground font-semibold leading-relaxed">
+          <p className="text-sm sm:text-lg text-primary font-semibold leading-relaxed">
             Cette journée devenue emblématique, loin d'être anodine, est à ce jour le rendez-vous étudiant à ne pas manquer.
           </p>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed">
             La journée culturelle est l'événement qui nous rassemble autour d'une seule et même cause : la célébration de l'interculturalité.
           </p>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-sm sm:text-lg text-primary font-semibold leading-relaxed">
             Participer à cet événement, c'est prôner la culture et reconnaître son importance.
           </p>
-          <p className="text-lg text-foreground font-semibold leading-relaxed">
+          <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed">
             Vibrante et stimulante, participer à cette belle et grande journée ne vous fera regretter qu'une seule chose : devoir attendre une année supplémentaire avant la prochaine édition.
           </p>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-sm sm:text-lg text-primary font-semibold leading-relaxed">
             Cet événement rassemble nos étudiants ainsi que tous ceux qui veulent participer, dans une célébration commune de l'art, de la musique, de la danse et du théâtre. C'est un moment unique et inoubliable de partage, de découverte et de fierté culturelle.
           </p>
-          <p className="text-lg text-foreground font-semibold leading-relaxed">
+          <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed">
             Si vous avez manqué l'édition passée, ne ratez pas celle de cette année, car demain sera mieux qu'hier.
           </p>
         </Reveal>
@@ -68,14 +68,14 @@ export default function About() {
         <div className="flex flex-row overflow-x-auto overflow-y-hidden gap-4 sm:gap-6 pb-4 sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-8">
           {FEATURES.map((feature, index) => (
             <Reveal key={index} delay={0.05 + index * 0.05}>
-              <div className="flex-shrink-0 w-[70vw] sm:w-full h-64 bg-card rounded-2xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-border/50 hover:border-primary/30 flex flex-col overflow-hidden">
+              <div className="flex-shrink-0 w-[70vw] sm:w-full h-68 bg-card rounded-2xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-border/50 hover:border-primary/30 flex flex-col overflow-hidden">
                 <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center mb-3 shadow-lg flex-shrink-0">
                   <feature.icon className="text-primary" size={20} />
                 </div>
                 <h3 className="text-base font-bold text-foreground mb-2 font-poppins line-clamp-2">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground text-xs leading-relaxed flex-grow line-clamp-4">{feature.description}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed flex-grow line-clamp-4">{feature.description}</p>
               </div>
             </Reveal>
           ))}

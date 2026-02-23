@@ -43,7 +43,7 @@ export default function ActivityCard({
       </h3>
 
       {/* Description */}
-      <p className="text-muted-foreground text-xs mb-3 line-clamp-2 leading-snug">{description}</p>
+      <p className="text-muted-foreground text-sm mb-3 line-clamp-2 leading-snug">{description}</p>
 
       {/* Category Image */}
       <div className="relative w-full h-40 sm:h-48 mb-3 rounded-xl overflow-hidden flex-shrink-0">
@@ -68,7 +68,7 @@ export default function ActivityCard({
 
   const card = (
     <Card className="h-80 sm:h-96 cursor-pointer rounded-2xl border-border/70 shadow-sm transition-all duration-300 group-hover:shadow-xl hover:border-primary group-hover:border-primary group-hover:text-primary motion-safe:hover:-translate-y-1 motion-safe:hover:scale-[1.02] active:scale-[0.99] overflow-hidden">
-      <CardContent className="p-4 sm:p-6 flex flex-col">
+      <CardContent className="p-2 sm:p-6 flex flex-col ">
         {cardContent}
       </CardContent>
     </Card>
