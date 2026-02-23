@@ -65,7 +65,7 @@ export default function About() {
         </Reveal>
 
         {/* Features Grid */}
-        <div className="flex flex-row overflow-x-auto gap-4 sm:gap-6 pb-4 sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-8">
+        <div className="flex flex-row overflow-x-auto overflow-y-hidden gap-4 sm:gap-6 pb-4 sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-8">
           {FEATURES.map((feature, index) => (
             <Reveal key={index} delay={0.05 + index * 0.05}>
               <div className="flex-shrink-0 w-[70vw] sm:w-full h-64 bg-card rounded-2xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-border/50 hover:border-primary/30 flex flex-col overflow-hidden">
