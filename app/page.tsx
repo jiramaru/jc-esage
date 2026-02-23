@@ -18,7 +18,7 @@ export default function Home() {
       <Hero />
       <Countdown />
       <About />
-      <ProgrammeHero title="Venez célébrer avec nous" subtitle="" backgroundImage="/assets/imgs/dance/dance-14.jpeg" />
+      <ProgrammeHero title="Venez célébrer avec nous" subtitle="" backgroundImage="/assets/imgs/jc/jc-01.jpeg" />
       <Programme />
       <Gallery />
       <EventInfo />
