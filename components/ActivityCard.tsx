@@ -36,22 +36,17 @@ export default function ActivityCard({
   const isLink = link !== "#";
 
   const cardContent = (
-    <>
-      {/* Icon */}
-      <div className="w-16 h-16 bg-gradient-hero rounded-lg flex items-center justify-center mb-6 motion-safe:group-hover:scale-110 transition-transform duration-300 shadow-lg">
-        <Icon className="text-primary" size={32} />
-      </div>
-
+    <div className="flex flex-col gap-1 ">
       {/* Title */}
-      <h3 className="text-2xl font-bold text-foreground mb-3 font-poppins">
+      <h3 className="text-base font-bold text-foreground font-poppins line-clamp-1 mb-1">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-muted-foreground leading-relaxed text-sm mb-6">{description}</p>
+      <p className="text-muted-foreground text-xs mb-3 line-clamp-2 leading-snug">{description}</p>
 
       {/* Category Image */}
-      <div className="relative w-full h-56 sm:h-64 mb-6 rounded-xl overflow-hidden">
+      <div className="relative w-full h-40 sm:h-48 mb-3 rounded-xl overflow-hidden flex-shrink-0">
         <Image
           src={image}
           alt={`${title} category image`}
@@ -61,19 +56,19 @@ export default function ActivityCard({
         />
       </div>
 
-      <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground/90 hover:text-primary transition-colors">
+      <div className="mt-auto inline-flex items-center gap-2 text-xs font-semibold text-foreground/90 hover:text-primary transition-colors">
         <span className="underline-offset-4 group-hover:underline group-hover:text-primary">Voir plus</span>
-        <ArrowRight className="h-4 w-4 motion-safe:group-hover:translate-x-1 transition-transform duration-300 group-hover:text-primary" />
+        <ArrowRight className="h-3 w-3 motion-safe:group-hover:translate-x-1 transition-transform duration-300 group-hover:text-primary" />
       </div>
 
       {/* Bottom accent line */}
-      <div className="h-1 w-0 bg-gradient-hero rounded-full mt-6 group-hover:w-full transition-all duration-500" />
-    </>
+      <div className="h-1 w-0 bg-gradient-hero rounded-full mt-3 group-hover:w-full transition-all duration-500" />
+    </div>
   );
 
   const card = (
-    <Card className="h-full cursor-pointer rounded-2xl border-border/70 shadow-sm transition-all duration-300 group-hover:shadow-xl hover:border-primary group-hover:border-primary group-hover:text-primary motion-safe:hover:-translate-y-1 motion-safe:hover:scale-[1.02] active:scale-[0.99]">
-      <CardContent className="p-6 sm:p-8">
+    <Card className="h-80 sm:h-96 cursor-pointer rounded-2xl border-border/70 shadow-sm transition-all duration-300 group-hover:shadow-xl hover:border-primary group-hover:border-primary group-hover:text-primary motion-safe:hover:-translate-y-1 motion-safe:hover:scale-[1.02] active:scale-[0.99] overflow-hidden">
+      <CardContent className="p-4 sm:p-6 flex flex-col">
         {cardContent}
       </CardContent>
     </Card>

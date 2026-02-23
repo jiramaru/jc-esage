@@ -1,136 +1,10 @@
 "use client";
 
-import * as React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Clock, CheckCircle, Share2, PartyPopper, CalendarDays } from "lucide-react";
-import gsap from "gsap";
-
 import Reveal from "./Reveal";
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
-// Import Roboto Slab font
-import "./countdown-font.css";
-
-interface RollingDigitColumnProps {
-  digit: string;
-  delay?: number;
-}
-
-function RollingDigitColumn({ digit, delay = 0 }: RollingDigitColumnProps) {
-  const columnRef = React.useRef<HTMLDivElement>(null);
-  const prevDigitRef = React.useRef(digit);
-  const prefersReducedMotion = React.useMemo(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches, []);
-
-  React.useEffect(() => {
-    const el = columnRef.current;
-    if (!el || prefersReducedMotion) return;
-
-    const prev = prevDigitRef.current;
-    if (prev === digit) return;
-
-    prevDigitRef.current = digit;
-
-    // Create flip elements
-    const flipTop = document.createElement("div");
-    const flipBottom = document.createElement("div");
-    flipTop.className = "absolute inset-x-0 top-0 h-1/2 overflow-hidden bg-gradient-hero rounded-t-xl border-b border-border/30";
-    flipBottom.className = "absolute inset-x-0 bottom-0 h-1/2 overflow-hidden bg-gradient-hero rounded-b-xl border-t border-border/30";
-
-    // Clone current digit into halves
-    const currentTop = document.createElement("div");
-    const currentBottom = document.createElement("div");
-    currentTop.className = "absolute inset-x-0 top-0 h-1/2 flex items-center justify-center text-3xl sm:text-4xl lg:text-5xl font-bold countdown-digit text-primary leading-none overflow-hidden rounded-t-xl";
-    currentBottom.className = "absolute inset-x-0 bottom-0 h-1/2 flex items-center justify-center text-3xl sm:text-4xl lg:text-5xl font-bold countdown-digit text-primary leading-none overflow-hidden rounded-b-xl";
-    currentTop.textContent = prev;
-    currentBottom.textContent = prev;
-
-    // New digit for the top (visible during flip)
-    const newTop = document.createElement("div");
-    newTop.className = "absolute inset-x-0 top-0 h-1/2 flex items-center justify-center text-3xl sm:text-4xl lg:text-5xl font-bold countdown-digit text-primary leading-none overflow-hidden rounded-t-xl";
-    newTop.textContent = digit;
-    newTop.style.opacity = "0";
-
-    // New digit for the bottom (revealed after flip)
-    const newBottom = document.createElement("div");
-    newBottom.className = "absolute inset-x-0 bottom-0 h-1/2 flex items-center justify-center text-3xl sm:text-4xl lg:text-5xl font-bold countdown-digit text-primary leading-none overflow-hidden rounded-b-xl";
-    newBottom.textContent = digit;
-    newBottom.style.opacity = "0";
-
-    // Shadow overlay during flip
-    const shadowOverlay = document.createElement("div");
-    shadowOverlay.className = "absolute inset-0 bg-black/5 rounded-xl pointer-events-none";
-    shadowOverlay.style.opacity = "0";
-
-    // Assemble
-    flipTop.appendChild(currentTop);
-    flipTop.appendChild(newTop);
-    flipBottom.appendChild(currentBottom);
-    flipBottom.appendChild(newBottom);
-    el.appendChild(flipTop);
-    el.appendChild(flipBottom);
-    el.appendChild(shadowOverlay);
-
-    // Animate flip (top half folds down, bottom half folds up) with shadow
-    const tl = gsap.timeline({ delay });
-    tl.set(flipTop, { transformOrigin: "bottom" });
-    tl.set(flipBottom, { transformOrigin: "top" });
-    tl.to(shadowOverlay, { opacity: 1, duration: 0.15 }, 0);
-    tl.to(currentTop, { opacity: 0, duration: 0.16 }, 0);
-    tl.to(newTop, { opacity: 1, duration: 0.16 }, 0);
-    tl.to(flipTop, { rotateX: -90, duration: 0.32, ease: "power2.inOut" }, 0);
-    tl.to(flipBottom, { rotateX: 90, duration: 0.32, ease: "power2.inOut" }, 0);
-    tl.set(newBottom, { opacity: 1 }, 0.32);
-    tl.set(currentBottom, { opacity: 0 }, 0.32);
-    tl.to(shadowOverlay, { opacity: 0, duration: 0.15 }, 0.32);
-    tl.call(() => {
-      // Cleanup and set final digit
-      el.removeChild(flipTop);
-      el.removeChild(flipBottom);
-      el.removeChild(shadowOverlay);
-      // Update the static display
-      const staticDisplay = el.querySelector(".static-digit");
-      if (staticDisplay) staticDisplay.textContent = digit;
-    });
-  }, [digit, prefersReducedMotion]);
-
-  return (
-    <div
-      ref={columnRef}
-      className="relative w-8 h-20 sm:w-10 sm:h-20 lg:w-12 lg:h-24 overflow-hidden bg-gradient-hero rounded-xl shadow-inner border border-border/20 lg:text-xl"
-      style={{ perspective: "200px" }}
-    >
-      <div className="static-digit absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl lg:text-5xl font-bold countdown-digit text-primary leading-none">
-        {digit}
-      </div>
-      {/* Split line */}
-      <div className="absolute inset-x-0 top-1/2 h-px bg-border/40 pointer-events-none" />
-    </div>
-  );
-}
-
-interface CountdownUnitProps {
-  value: number;
-  label: string;
-  delay?: number;
-}
-
-function CountdownUnit({ value, label, delay = 0 }: CountdownUnitProps) {
-  const digits = String(value).padStart(2, "0").split("");
-  return (
-    <Reveal delay={delay} className="shrink-0" y={10} scale={0.98}>
-      <div className="bg-gradient-hero rounded-xl px-3 py-4 w-28 sm:w-32 text-center">
-        <div className="flex justify-center gap-1 rounded-xl py-8">
-          {digits.map((d, i) => (
-            <RollingDigitColumn key={`${label}-${i}`} digit={d} delay={delay + i * 0.04} />
-          ))}
-        </div>
-        <div className="text-xs sm:text-sm text-muted-foreground/80 mt-2 leading-none">{label}</div>
-      </div>
-    </Reveal>
-  );
-}
 
 interface CountdownState {
   days: number;
@@ -138,6 +12,23 @@ interface CountdownState {
   minutes: number;
   seconds: number;
   isComplete: boolean;
+}
+
+function TimeUnit({ value, label }: { value: number; label: string }) {
+  const displayValue = String(value).padStart(2, "0");
+  
+  return (
+    <div className="flex flex-col items-center gap-1 sm:gap-2">
+      <div className="bg-accent from-primary to-accent text-white rounded-lg px-2 sm:px-4 py-2 sm:py-6 min-w-12 sm:min-w-20 text-center shadow-lg">
+        <div className="text-xl sm:text-4xl lg:text-5xl font-bold font-poppins tabular-nums leading-tight">
+          {displayValue}
+        </div>
+      </div>
+      <span className="text-[10px] sm:text-sm text-muted-foreground font-medium uppercase tracking-tighter sm:tracking-wider">
+        {label}
+      </span>
+    </div>
+  );
 }
 
 export default function Countdown() {
@@ -149,7 +40,11 @@ export default function Countdown() {
     isComplete: false,
   });
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
+
     const calculateCountdown = () => {
       // Target date: April 4, 2026, 09:00 AM
       const targetDate = new Date("2026-04-04T09:00:00").getTime();
@@ -189,9 +84,17 @@ export default function Countdown() {
     return () => clearInterval(timer);
   }, []);
 
+  if (!mounted) {
+    return (
+      <section className="py-16 sm:py-24 bg-muted/30">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-8" />
+      </section>
+    );
+  }
+
   return (
-    <section className="py-16 sm:py-24 bg-muted/30 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-8">
+    <section className="py-12 sm:py-24 bg-muted/30 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-8">
         {countdown.isComplete ? (
           <Reveal>
             <div className="text-center py-12 space-y-6">
@@ -222,26 +125,29 @@ export default function Countdown() {
             </div>
           </Reveal>
         ) : (
-          <div className="space-y-12">
+          <div className="space-y-6 sm:space-y-12">
             <Reveal>
               <div className="text-center space-y-2">
-                <h2 className="text-4xl sm:text-5xl font-bold text-foreground font-poppins flex items-center justify-center gap-3">
-                  <Clock className="w-10 h-10 text-primary" />
+                <h2 className="text-2xl sm:text-5xl font-bold text-foreground font-poppins flex items-center justify-center gap-2 sm:gap-3">
+                  <Clock className="w-6 sm:w-10 h-6 sm:h-10 text-primary" />
                   Compte à rebours
                 </h2>
-                <p className="text-muted-foreground">
+                <p className="text-xs sm:text-base text-muted-foreground">
                   Jusqu&apos;à la Journée Culturelle de l&apos;ESGAE
                 </p>
               </div>
             </Reveal>
 
-            <Card className="rounded-2xl border bg-card/80 backdrop-blur-sm shadow-sm">
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex items-stretch gap-4 sm:gap-6 justify-start sm:justify-center overflow-x-auto overflow-y-hidden">
-                  <CountdownUnit value={countdown.days} label="Jours" delay={0.2} />
-                  <CountdownUnit value={countdown.hours} label="Heures" delay={0.25} />
-                  <CountdownUnit value={countdown.minutes} label="Minutes" delay={0.3} />
-                  <CountdownUnit value={countdown.seconds} label="Secondes" delay={0.35} />
+            <Card className="rounded-3xl border bg-card/50 backdrop-blur-sm overflow-hidden">
+              <CardContent className="p-4 sm:p-8">
+                <div className="flex items-center justify-center gap-1 sm:gap-4">
+                  <TimeUnit value={countdown.days} label="Jours" />
+                  <div className="text-sm sm:text-3xl text-muted-foreground/50 font-bold">:</div>
+                  <TimeUnit value={countdown.hours} label="Heures" />
+                  <div className="text-sm sm:text-3xl text-muted-foreground/50 font-bold">:</div>
+                  <TimeUnit value={countdown.minutes} label="Minutes" />
+                  <div className="text-sm sm:text-3xl text-muted-foreground/50 font-bold">:</div>
+                  <TimeUnit value={countdown.seconds} label="Secondes" />
                 </div>
               </CardContent>
             </Card>

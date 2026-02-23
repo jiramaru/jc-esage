@@ -65,16 +65,17 @@ export default function Programme() {
 
         {/* Activities Grid */}
         <Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-row overflow-x-auto gap-4 p-4 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-3 lg:gap-6 overflow-y-hidden">
             {ACTIVITIES.map((activity, index) => (
-              <ActivityCard
-                key={index}
-                icon={activity.icon}
-                title={activity.title}
-                description={activity.description}
-                image={activity.image}
-                delay={index * 0.1}
-              />
+              <div key={index} className="flex-shrink-0 w-[70vw] md:w-full">
+                <ActivityCard
+                  icon={activity.icon}
+                  title={activity.title}
+                  description={activity.description}
+                  image={activity.image}
+                  delay={index * 0.1}
+                />
+              </div>
             ))}
           </div>
         </Reveal>

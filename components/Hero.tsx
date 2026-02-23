@@ -274,8 +274,8 @@ export default function Hero() {
 
         {/* Title slide-in animation: delay 0.2s. Adjust to change when title appears */}
         <Reveal className="space-y-2" delay={0.1}>
-          <h1 className="font-poppins text-5xl sm:text-6xl md:text-7xl font-bold leading-tight">
-            <span className="text-foreground block min-h-16 sm:min-h-20 md:min-h-24">
+          <h1 className="font-poppins text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-none space-y-2">
+            <span className="text-foreground block h-20 sm:h-24 md:h-32">
               <span ref={titleTypedRef} />
               <span
                 ref={titleCursorRef}
@@ -283,10 +283,10 @@ export default function Hero() {
                 className="typed-cursor"
               />
             </span>
-            <span ref={esgaeRef} className="bg-clip-text text-black block text-6xl sm:text-7xl md:text-8xl relative inline-block">
+            <span ref={esgaeRef} className="bg-clip-text text-black hidden md:block sm:inline-block text-5xl md:text-6xl lg:text-7xl relative">
               ESGAE
             </span>
-            <span className="text-2xl sm:text-3xl md:text-4xl text-muted-foreground font-medium block">
+            <span className="text-xl sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground font-medium block">
               Edition 2026
             </span>
           </h1>

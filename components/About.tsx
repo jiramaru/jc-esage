@@ -65,17 +65,17 @@ export default function About() {
         </Reveal>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="flex flex-row overflow-x-auto gap-4 sm:gap-6 pb-4 sm:pb-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-8">
           {FEATURES.map((feature, index) => (
             <Reveal key={index} delay={0.05 + index * 0.05}>
-              <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-border/50 hover:border-primary/30 h-full flex flex-col">
-                <div className="w-12 h-12 bg-gradient-hero rounded-xl flex items-center justify-center mb-4 shadow-lg flex-shrink-0">
-                  <feature.icon className="text-primary" size={24} />
+              <div className="flex-shrink-0 w-[70vw] sm:w-full h-64 bg-card rounded-2xl p-4 sm:p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-border/50 hover:border-primary/30 flex flex-col overflow-hidden">
+                <div className="w-10 h-10 bg-gradient-hero rounded-lg flex items-center justify-center mb-3 shadow-lg flex-shrink-0">
+                  <feature.icon className="text-primary" size={20} />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2 font-poppins">
+                <h3 className="text-base font-bold text-foreground mb-2 font-poppins line-clamp-2">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed flex-grow">{feature.description}</p>
+                <p className="text-muted-foreground text-xs leading-relaxed flex-grow line-clamp-4">{feature.description}</p>
               </div>
             </Reveal>
           ))}
