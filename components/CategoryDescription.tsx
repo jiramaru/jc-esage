@@ -19,7 +19,7 @@ export default function CategoryDescription({
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-montserrat mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-poppins mb-8">
               À propos de {category}
             </h2>
             <div className="space-y-6">
@@ -37,7 +37,7 @@ export default function CategoryDescription({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
               {highlights.map((highlight, index) => (
                 <div key={index} className="bg-card rounded-2xl p-6 border border-border/50">
-                  <h3 className="text-xl font-bold text-foreground mb-4 font-montserrat text-primary">
+                  <h3 className="text-xl font-bold text-foreground mb-4 font-poppins text-primary">
                     {highlight.title}
                   </h3>
                   <ul className="space-y-2 text-muted-foreground">

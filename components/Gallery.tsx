@@ -236,7 +236,7 @@ export default function Gallery() {
         {/* Title */}
         <Reveal>
           <div className="text-center mb-16 space-y-2">
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground font-montserrat flex items-center justify-center gap-3">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground font-poppins flex items-center justify-center gap-3">
               <ImageIcon className="w-10 h-10 text-primary" />
               Retour en images
             </h2>

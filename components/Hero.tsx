@@ -274,8 +274,8 @@ export default function Hero() {
 
         {/* Title slide-in animation: delay 0.2s. Adjust to change when title appears */}
         <Reveal className="space-y-2" delay={0.1}>
-          <h1 className="font-montserrat text-5xl sm:text-6xl md:text-7xl font-bold leading-tight">
-            <span className="text-foreground block">
+          <h1 className="font-poppins text-5xl sm:text-6xl md:text-7xl font-bold leading-tight">
+            <span className="text-foreground block min-h-16 sm:min-h-20 md:min-h-24">
               <span ref={titleTypedRef} />
               <span
                 ref={titleCursorRef}

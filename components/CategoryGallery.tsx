@@ -43,7 +43,7 @@ export default function CategoryGallery({ category, images }: CategoryGalleryPro
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <div className="text-center">
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-montserrat mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-poppins mb-4">
                 Galerie {category}
               </h2>
               <p className="text-muted-foreground">
@@ -72,11 +72,11 @@ export default function CategoryGallery({ category, images }: CategoryGalleryPro
 
         {/* Gallery Grid */}
         <Reveal>
-          <div className="flex flex-col gap-6 sm:flex-row sm:overflow-x-auto sm:gap-6 sm:pb-4 lg:grid lg:grid-cols-3 lg:overflow-x-visible">
+          <div className="flex flex-row overflow-x-auto gap-4 pb-4 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:overflow-x-visible lg:gap-6 lg:pb-0">
             {validImages.map((image, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl h-64 lg:h-80 cursor-pointer shadow-md hover:shadow-2xl transition-shadow duration-300 sm:flex-shrink-0 sm:w-80 lg:w-full"
+                className="group relative overflow-hidden rounded-2xl h-64 lg:h-80 cursor-pointer shadow-md hover:shadow-2xl transition-shadow duration-300 flex-shrink-0 w-72 sm:w-80 lg:w-full snap-start"
                 onClick={() => setLightboxIndex(index)}
                 role="button"
                 tabIndex={0}

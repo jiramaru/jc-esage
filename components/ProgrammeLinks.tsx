@@ -48,7 +48,7 @@ export default function ProgrammeLinks({ currentCategory }: ProgrammeLinksProps)
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="mb-12">
           <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-montserrat mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-poppins mb-4">
               Explorez nos programmes
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -68,7 +68,7 @@ export default function ProgrammeLinks({ currentCategory }: ProgrammeLinksProps)
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-foreground mb-2 font-montserrat">
+                  <h3 className="text-xl font-bold text-foreground mb-2 font-poppins">
                     {program.title}
                   </h3>
 

@@ -13,7 +13,7 @@ export default function SectionTitle({
     <div
       className={`space-y-2 ${centered ? "text-center" : ""}`}
     >
-      <h2 className="text-4xl sm:text-5xl font-bold text-foreground font-montserrat">
+      <h2 className="text-4xl sm:text-5xl font-bold text-foreground font-poppins">
         {title}
       </h2>
       {subtitle && (

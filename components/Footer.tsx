@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* About */}
           <Reveal className="space-y-3" delay={0.05}>
-            <h3 className="text-2xl font-bold font-montserrat gradient-hero bg-clip-text text-white px-2 rounded">ESGAE la grande école</h3>
+            <h3 className="text-2xl font-bold font-poppins gradient-hero bg-clip-text text-white px-2 rounded">ESGAE la grande école</h3>
             <p className="text-white/70">
               Célébrant l&apos;éducation et la culture comme moteurs du progrès
               social.
@@ -40,7 +40,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <Reveal delay={0.1}>
-            <h3 className="text-lg font-bold mb-4 font-montserrat">Liens</h3>
+            <h3 className="text-lg font-bold mb-4 font-poppins">Liens</h3>
             <ul className="space-y-2">
               {[
                 { label: "Accueil", href: "#hero" },
@@ -64,7 +64,7 @@ export default function Footer() {
 
           {/* Social Links */}
           <Reveal delay={0.15}>
-            <h3 className="text-lg font-bold mb-4 font-montserrat">Nous suivre</h3>
+            <h3 className="text-lg font-bold mb-4 font-poppins">Nous suivre</h3>
             <div className="flex gap-4 mb-6">
               {[
                 { icon: Facebook, href: "#", label: "Facebook" },

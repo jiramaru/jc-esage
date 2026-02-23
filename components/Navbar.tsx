@@ -58,7 +58,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="#"
-            className="font-montserrat font-bold text-2xl bg-clip-text text-white hover:scale-105 transition-transform duration-300 flex items-center gap-2"
+            className="font-poppins font-bold text-2xl bg-clip-text text-white hover:scale-105 transition-transform duration-300 flex items-center gap-2"
           >
          
             JC-ESGAE
@@ -99,7 +99,7 @@ export default function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="p-0 bg-foreground/95 border-l border-white/10">
                 <SheetHeader className="px-4 pt-4">
-                  <SheetTitle className="font-montserrat text-white flex items-center gap-2">
+                  <SheetTitle className="font-poppins text-white flex items-center gap-2">
                     <CalendarDays className="size-4" /> Menu
                   </SheetTitle>
                 </SheetHeader>

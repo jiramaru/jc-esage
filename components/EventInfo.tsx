@@ -66,7 +66,7 @@ export default function EventInfo() {
                     </p>
 
                     {/* Main Value */}
-                    <h3 className="text-2xl font-bold text-foreground mb-1 font-montserrat">
+                    <h3 className="text-2xl font-bold text-foreground mb-1 font-poppins">
                       {info.value}
                     </h3>
 

@@ -72,7 +72,7 @@ export default function About() {
                 <div className="w-12 h-12 bg-gradient-hero rounded-xl flex items-center justify-center mb-4 shadow-lg flex-shrink-0">
                   <feature.icon className="text-primary" size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2 font-montserrat">
+                <h3 className="text-xl font-bold text-foreground mb-2 font-poppins">
                   {feature.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed flex-grow">{feature.description}</p>

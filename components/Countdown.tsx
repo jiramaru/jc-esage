@@ -198,7 +198,7 @@ export default function Countdown() {
               <div className="flex justify-center mb-4 animate-bounce">
                 <PartyPopper className="w-14 h-14 text-primary" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-montserrat flex items-center justify-center gap-3">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground font-poppins flex items-center justify-center gap-3">
                 <CheckCircle className="w-10 h-10 text-primary" />
                 C&apos;est aujourd&apos;hui !
               </h2>
@@ -225,7 +225,7 @@ export default function Countdown() {
           <div className="space-y-12">
             <Reveal>
               <div className="text-center space-y-2">
-                <h2 className="text-4xl sm:text-5xl font-bold text-foreground font-montserrat flex items-center justify-center gap-3">
+                <h2 className="text-4xl sm:text-5xl font-bold text-foreground font-poppins flex items-center justify-center gap-3">
                   <Clock className="w-10 h-10 text-primary" />
                   Compte à rebours
                 </h2>

@@ -43,7 +43,7 @@ export default function ActivityCard({
       </div>
 
       {/* Title */}
-      <h3 className="text-2xl font-bold text-foreground mb-3 font-montserrat">
+      <h3 className="text-2xl font-bold text-foreground mb-3 font-poppins">
         {title}
       </h3>
 

@@ -56,7 +56,7 @@ export default function MapSection() {
         {/* Address Info */}
         <Reveal delay={0.1}>
           <div className="mt-12 bg-card rounded-2xl p-8 shadow-md border border-primary/20 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-foreground mb-4 font-montserrat flex items-center gap-3">
+            <h3 className="text-2xl font-bold text-foreground mb-4 font-poppins flex items-center gap-3">
               <Navigation className="text-primary" size={28} />
               Adresse Complète
             </h3>
@@ -64,8 +64,8 @@ export default function MapSection() {
               ESGAE
             </p>
             <p className="text-muted-foreground">
-              Avenue Cité des 17<br />
-              Moukondo, Cameroon
+              Avenue Cité des 17, Moukondo<br />
+              Brazzaville, Congo
             </p>
           </div>
         </Reveal>

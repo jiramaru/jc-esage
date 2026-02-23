@@ -51,7 +51,7 @@ export default function ActivityNav({ currentActivity }: ActivityNavProps) {
 
   return (
     <div className="py-12">
-      <h3 className="text-3xl font-bold font-montserrat mb-8 text-center">
+      <h3 className="text-3xl font-bold font-poppins mb-8 text-center">
         Explorez les autres activités
       </h3>
 
@@ -64,7 +64,7 @@ export default function ActivityNav({ currentActivity }: ActivityNavProps) {
                   <div
                     className={`w-12 h-12 rounded-lg bg-gradient-to-br ${activity.color} mb-4 opacity-80`}
                   />
-                  <h4 className="text-lg font-bold font-montserrat text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <h4 className="text-lg font-bold font-poppins text-foreground mb-2 group-hover:text-primary transition-colors">
                     {activity.name}
                   </h4>
                   <p className="text-sm text-muted-foreground leading-relaxed">
