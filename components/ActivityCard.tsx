@@ -51,7 +51,7 @@ export default function ActivityCard({
       <p className="text-muted-foreground leading-relaxed text-sm mb-6">{description}</p>
 
       {/* Category Image */}
-      <div className="relative w-full h-48 mb-6 rounded-xl overflow-hidden">
+      <div className="relative w-full h-56 sm:h-64 mb-6 rounded-xl overflow-hidden">
         <Image
           src={image}
           alt={`${title} category image`}
@@ -73,7 +73,7 @@ export default function ActivityCard({
 
   const card = (
     <Card className="h-full cursor-pointer rounded-2xl border-border/70 shadow-sm transition-all duration-300 group-hover:shadow-xl hover:border-primary group-hover:border-primary group-hover:text-primary motion-safe:hover:-translate-y-1 motion-safe:hover:scale-[1.02] active:scale-[0.99]">
-      <CardContent className="p-8">
+      <CardContent className="p-6 sm:p-8">
         {cardContent}
       </CardContent>
     </Card>

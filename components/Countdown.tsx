@@ -191,7 +191,7 @@ export default function Countdown() {
 
   return (
     <section className="py-16 sm:py-24 bg-muted/30 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-8">
         {countdown.isComplete ? (
           <Reveal>
             <div className="text-center py-12 space-y-6">
@@ -236,8 +236,8 @@ export default function Countdown() {
             </Reveal>
 
             <Card className="rounded-2xl border bg-card/80 backdrop-blur-sm shadow-sm">
-              <CardContent className="p-4 sm:p-6">
-                <div className="flex items-stretch gap-3 sm:gap-4 justify-start sm:justify-center overflow-x-auto">
+              <CardContent className="p-6 sm:p-8">
+                <div className="flex items-stretch gap-4 sm:gap-6 justify-start sm:justify-center overflow-x-auto">
                   <CountdownUnit value={countdown.days} label="Jours" delay={0.2} />
                   <CountdownUnit value={countdown.hours} label="Heures" delay={0.25} />
                   <CountdownUnit value={countdown.minutes} label="Minutes" delay={0.3} />

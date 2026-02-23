@@ -30,7 +30,7 @@ const FEATURES = [
 export default function About() {
   return (
     <section className="py-16 sm:py-24 bg-background">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-8">
         {/* Title */}
         <Reveal className="mb-16">
           <SectionTitle
@@ -40,7 +40,7 @@ export default function About() {
         </Reveal>
 
         {/* Main Text */}
-        <Reveal className="mb-16 max-w-3xl mx-auto space-y-6" delay={0.05}>
+        <Reveal className="mb-16 max-w-3xl mx-auto space-y-6 sm:space-y-8" delay={0.05}>
           <p className="text-lg text-muted-foreground leading-relaxed">
             Née il y'a 4 ans, la Journée Culturelle est l'un des événements phares organisés par l'association des étudiants et anciens (AEA) sous la supervision de l'Ecole Supérieure de Gestion et d'Administration des Entreprises (ESGAE).
           </p>
@@ -65,10 +65,10 @@ export default function About() {
         </Reveal>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {FEATURES.map((feature, index) => (
             <Reveal key={index} delay={0.05 + index * 0.05}>
-              <div className="bg-card rounded-2xl p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-border/50 hover:border-primary/30 h-full flex flex-col">
+              <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-all duration-300 border border-border/50 hover:border-primary/30 h-full flex flex-col">
                 <div className="w-12 h-12 bg-gradient-hero rounded-xl flex items-center justify-center mb-4 shadow-lg flex-shrink-0">
                   <feature.icon className="text-primary" size={24} />
                 </div>

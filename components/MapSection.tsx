@@ -11,7 +11,7 @@ export default function MapSection() {
       id="localisation"
       className="py-16 sm:py-24 bg-background relative"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-8">
         <Reveal className="mb-16">
           <SectionTitle
             title="Nous trouver"
@@ -36,7 +36,7 @@ export default function MapSection() {
         </Reveal>
 
         {/* Action Buttons */}
-        <Reveal className="flex flex-col sm:flex-row gap-4 justify-center mt-10" delay={0.05}>
+        <Reveal className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-10" delay={0.05}>
           <a
             href="https://www.google.com/maps/search/ESGAE+Moukondo+Cameroon"
             target="_blank"
@@ -55,7 +55,7 @@ export default function MapSection() {
 
         {/* Address Info */}
         <Reveal delay={0.1}>
-          <div className="mt-12 bg-card rounded-2xl p-8 shadow-md border border-primary/20 max-w-2xl mx-auto">
+          <div className="mt-12 bg-card rounded-2xl p-6 sm:p-8 shadow-md border border-primary/20 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-foreground mb-4 font-poppins flex items-center gap-3">
               <Navigation className="text-primary" size={28} />
               Adresse Complète

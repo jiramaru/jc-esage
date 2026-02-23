@@ -260,7 +260,7 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 lg:px-8 text-center space-y-8 md:space-y-10">
         {/* Badge slide-in animation: delay 0.1s. Adjust to change when badge appears */}
         <Reveal className="flex justify-center" delay={0.05}>
           <Badge
@@ -329,7 +329,7 @@ export default function Hero() {
         </Reveal>
 
         {/* Scroll arrow bounce animation: delay 0.9s. Adjust to change when arrow appears */}
-        <Reveal className="absolute bottom-[-5rem] left-1/2 transform -translate-x-1/2" delay={0.3}>
+        <Reveal className="absolute bottom-[-3rem] sm:bottom-[-5rem] left-1/2 transform -translate-x-1/2" delay={0.3}>
           <div className="animate-bounce">
             <ArrowDown className="text-accent" size={32} />
           </div>

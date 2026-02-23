@@ -39,7 +39,7 @@ export default function EventInfo() {
       id="infos"
       className="py-16 sm:py-24 bg-muted/30 relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-8">
         <Reveal className="mb-16">
           <SectionTitle
             title="Informations Pratiques"
