@@ -1,6 +1,7 @@
 "use client";
 
-import { Facebook, Instagram, Twitter, Mail, ArrowUp, Heart } from "lucide-react";
+import { ArrowUp, Heart } from "lucide-react";
+import { FaFacebook, FaInstagram, FaTiktok, FaEnvelope } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 import Reveal from "./Reveal";
@@ -67,13 +68,14 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4 font-poppins">Nous suivre</h3>
             <div className="flex gap-4 mb-6">
               {[
-                { icon: Facebook, href: "#", label: "Facebook" },
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Twitter, href: "#", label: "Twitter" },
-                { icon: Mail, href: "mailto:contact@esgae.com", label: "Email" },
+                { icon: FaFacebook, href: "#", label: "Facebook" },
+                { icon: FaInstagram, href: "#", label: "Instagram" },
+                { icon: FaTiktok, href: "https://www.tiktok.com/@aea_esgae_01?_r=1&_t=ZS-94BZ75LMWgR", label: "TikTok" },
+                { icon: FaEnvelope, href: "mailto:contact@esgae.com", label: "Email" },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
+                  target="_blank"
                   href={href}
                   title={label}
                   className="w-10 h-10 bg-primary/20 border border-primary/30 rounded-full flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300"
@@ -95,7 +97,7 @@ export default function Footer() {
             <p className="mt-4 md:mt-0 flex items-center gap-2">
               Fait avec
               <Heart size={16} className="text-primary fill-primary" />
-              pour la culture
+              par le Club Informatique
             </p>
           </div>
         </div>

@@ -310,7 +310,7 @@ export default function Hero() {
             size="lg"
             className="rounded-2xl gap-2 hover:shadow-lg hover:scale-105 transition-all duration-300"
           >
-            <Link href="#program">
+            <Link href="#5&">
               <Calendar className="w-4 h-4" />
               Voir le programme
             </Link>

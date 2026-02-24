@@ -39,7 +39,7 @@ export default function Navbar() {
 
   const links = [
     { label: "Accueil", href: "#hero", icon: Home },
-    { label: "Programme", href: "#programme", icon: CalendarDays },
+    { label: "Programme", href: "#program", icon: CalendarDays },
     { label: "Galerie", href: "#galerie", icon: Images },
     { label: "Infos", href: "#infos", icon: Info },
     { label: "Localisation", href: "#localisation", icon: MapPin },
